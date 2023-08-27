@@ -1,0 +1,6 @@
+portfolio/db.sqlite3
+portfolio/*/settings.py
+portfolio/*/__pycache__/
+portfolio/*/*.log
+portfolio/*/*.pot
+portfolio/*/*.pyc
