@@ -5,3 +5,4 @@ portfolio/*/*.log
 portfolio/*/*.pot
 portfolio/*/*.pyc
 portfolio/*/*/*/*.pyc
+.vscode/settings.json

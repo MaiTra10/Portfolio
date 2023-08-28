@@ -1,9 +1,46 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang='en'>
     <head>
+        <meta charset='UTF-8'>
+        <meta name='description' content='A website to take notes...'>
         <title>Maitra Patel | Portfolio</title>
+        <link rel='icon' href='images/favicon.svg'/>
+        <link href='{% static "css/style.css" %}' rel='stylesheet' type='text/css'>
+        <script src='https://kit.fontawesome.com/3fabf18804.js' crossorigin='anonymous'></script>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css'>
     </head>
     <body>
-
+        <div class="div_header">
+            <div class="div_title">
+                <h1>Maitra Patel</h1>
+                <h5>Backend Developer</h5>
+            </div>
+        </div>
+        <svg class="svg_wave" viewbox="0 24 150 28" preserveaspectratio="none">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="50" y="0" fill="rgba(0, 0, 0, 0.2)"/>
+                <use xlink:href="#gentle-wave" x="50" y="3" fill="rgba(0, 0, 0, 0.2)"/>
+                <use xlink:href="#gentle-wave" x="50" y="6" fill="rgba(0, 0, 0, 0.2)"/>
+            </g>
+        </svg>
+        <div class='div_welcome'>
+            <p class="p_welcome">
+                Hello and welcome to my portfolio! At first glance you might be wondering<br><br>
+                'where am I',<br>
+                'this doesn't look like a portfolio',<br>
+                'is this even a portfolio'.<br><br>
+                Do not worry, you are in the right place! As a backend developer, I had a thought while planning my portfolio,<br><br>
+                'why would I build a frontend for my portfolio, when I could just be building an API',<br><br>
+                so I did both...
+            </p>
+            <div class="div_welcome_button" onclick="goToAPI()">Let's Go</div>
+        </div>
+        <script src="{% static "js/script.js" %}"></script>
     </body>
 </html>
