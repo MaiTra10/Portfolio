@@ -7,6 +7,9 @@ app_name = 'page'
 urlpatterns = [
     
     path('', index, name = 'index'),
-    path('projects/', views.GetProjects.as_view(), name = 'projects')
+    path('projects/', views.ProjectsView.as_view(), name = 'projects'),
+    path('socials/', views.SocialsView.as_view(), name = 'socials'),
+    path('resume/', views.ResumeView.as_view(), name = 'resume')
+    
 
 ]
