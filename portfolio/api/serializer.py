@@ -1,22 +1,23 @@
 from rest_framework import serializers
+from . import models
 
-class ProjectSerializer(serializers.Serializer):
+class ProjectsSerializer(serializers.ModelSerializer):
 
-    name = serializers.CharField()
-    image = serializers.ImageField()
-    diagram = serializers.ImageField()
-    links = serializers.JSONField()
-    description = serializers.TextField()
-    frontend = serializers.JSONField()
-    backend = serializers.JSONField()
-    database = serializers.JSONField()
-    host = serializers.JSONField()
+    class Meta:
 
-class Socials(serializers.Serializer):
+        model = models.Projects
+        fields = '__all__'
 
-    links = serializers.JSONField()
+class SocialsSerializer(serializers.Serializer):
 
-class Resume(serializers.Serializer):
+    class Meta:
 
-    pdf = serializers.FileField()
-    image = serializers.ImageField()
+        model = models.Projects
+        fields = '__all__'
+
+class ResumeSerializer(serializers.Serializer):
+
+    class Meta:
+
+        model = models.Projects
+        fields = '__all__'
