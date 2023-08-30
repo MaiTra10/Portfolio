@@ -12,6 +12,10 @@ class Projects(models.Model):
     database = models.JSONField()
     host = models.JSONField()
 
+    class Meta:
+
+        verbose_name_plural = 'Projects'
+
     def __str__(self):
         return self.title
     
@@ -19,7 +23,15 @@ class Socials(models.Model):
 
     links = models.JSONField()
 
+    class Meta:
+
+        verbose_name_plural = 'Socials'
+
 class Resume(models.Model):
 
     pdf = models.FileField(upload_to = 'resume')
     image = models.ImageField(upload_to = 'resume')
+
+    class Meta:
+
+        verbose_name_plural = 'Resume'
