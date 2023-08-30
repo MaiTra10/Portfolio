@@ -10,14 +10,16 @@ class Projects(models.Model):
     frontend = models.JSONField()
     backend = models.JSONField()
     database = models.JSONField()
+    tools = models.JSONField()
     host = models.JSONField()
 
     class Meta:
 
+        ordering = ("id",)
         verbose_name_plural = 'Projects'
 
     def __str__(self):
-        return self.title
+        return self.name
     
 class Socials(models.Model):
 
