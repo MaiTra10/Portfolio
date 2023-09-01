@@ -41,6 +41,22 @@
             </p>
             <div class="div_welcome_button" onclick="goToAPI()">Let's Go</div>
         </div>
+        <div class="div_container">
+            <div class="div_container_bar">
+                <form action="." class="form_container">
+                    <select name="methods" id="methods">
+                        <option value="get">GET</option>
+                        <option value="post">POST</option>
+                        <option value="put">PUT</option>
+                        <option value="delete">DELETE</option>
+                        <option value="options">OPTIONS</option>
+                    </select>
+                    <input type="url", id="urlInput" name="urlInput" placeholder="Enter an endpoint here...">
+                    <button>Send</button>
+                </form>
+            </div>
+            <div class="div_container_display"></div>
+        </div>
         <script src="{% static "js/script.js" %}"></script>
     </body>
 </html>

@@ -47,7 +47,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    color: white;
 
 }
 /*removes default decoration on a tags*/
@@ -198,6 +197,7 @@ body {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    color: var(--light);
 
 }
 
@@ -205,5 +205,114 @@ body {
 
     background-color: #203529;
     cursor: pointer;
+
+}
+
+.div_container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 250ms ease-in-out;
+
+}
+
+.div_container-show {
+
+    opacity: 1;
+    visibility: visible;
+
+}
+
+.div_container_bar {
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1vw;
+    background-color: #1b251c;
+    border-radius: 2vw;
+
+}
+
+.form_container > select, .form_container > input, .form_container > button {
+
+    border: none;
+    outline: none;
+    transition: all 150ms ease-in-out;
+
+}
+
+.form_container > select {
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: var(--acc_1);
+    color: var(--light);
+    padding: 10px;
+    height: 40px;
+    width: fit-content;
+    border-radius: 40px;
+    text-align: center;
+
+}
+
+.form_container > select > option {
+
+    background-color: var(--dark);
+    text-align:start;
+
+}
+
+.form_container > select::-ms-expand {
+
+    display: none;
+
+}
+
+.form_container > input {
+
+    padding-inline: 15px;
+    height: 40px;
+    width: 350px;
+    border-radius: 4vw;
+    background-color: #1d2f25;
+    color: var(--light);
+
+}
+
+.form_container > button {
+
+    background-color: var(--acc_1);
+    color: var(--light);
+    padding-inline: 20px;
+    height: 40px;
+    width: fit-content;
+    border-radius: 4vw;
+
+}
+
+.form_container select:hover, .form_container button:hover {
+
+    background-color: #294635;
+    cursor: pointer;
+
+}
+
+.div_container_display {
+
+    width: calc(100% - 20%);
+    height: max(65vh, 340px);
+    border-radius: 0.75vw;
+    margin: 0% 10%;
+    margin-top: calc(2vh);
+    margin-bottom: calc(2vh);
+    background-color: var(--dark);
+    padding: 0.75vw;
+    display: flex;
 
 }
