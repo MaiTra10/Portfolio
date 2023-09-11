@@ -153,6 +153,9 @@ body {
     flex-direction: column;
     align-items: center;
     transition: all 250ms ease-in-out;
+    
+    /* temporary */
+    display: none;
 
 }
 
@@ -197,6 +200,7 @@ body {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    white-space: nowrap;
     color: var(--light);
 
 }
@@ -213,9 +217,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    visibility: hidden;
-    opacity: 0;
+    /*visibility: hidden;
+    opacity: 0;*/
     transition: all 250ms ease-in-out;
+    /*position: absolute;
+    top: 0;
+    left: 0;*/
 
 }
 
@@ -223,6 +230,7 @@ body {
 
     opacity: 1;
     visibility: visible;
+    position: static;
 
 }
 
@@ -230,10 +238,10 @@ body {
 
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     padding: 1vw;
-    background-color: #1b251c;
+    background-color: rgba(0, 0, 0, 0.075);
     border-radius: 2vw;
 
 }
@@ -258,6 +266,7 @@ body {
     width: fit-content;
     border-radius: 40px;
     text-align: center;
+    margin-right: 10px;
 
 }
 
@@ -293,6 +302,7 @@ body {
     height: 40px;
     width: fit-content;
     border-radius: 4vw;
+    margin-left: 10px;
 
 }
 
@@ -303,16 +313,47 @@ body {
 
 }
 
+.display_buttons {
+
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+
+}
+
+.button {
+
+    padding-block: 10px;
+    padding-inline: 20px;
+    font-size: 12px;
+    background-color: rgba(255, 255, 255, 0.075);
+    color: var(--light);
+    height: fit-content;
+    width: fit-content;
+    border-radius: 4vw;
+    cursor: pointer;
+    user-select: none;
+    transition: all 250ms ease-in-out;
+
+}
+
+.button:hover {
+
+    background-color: rgba(255, 255, 255, 0.0325);
+
+}
+
 .div_container_display {
 
     width: calc(100% - 20%);
     height: max(65vh, 340px);
     border-radius: 0.75vw;
     margin: 0% 10%;
-    margin-top: calc(2vh);
-    margin-bottom: calc(2vh);
+    margin-block: calc(2vh);
     background-color: var(--dark);
     padding: 0.75vw;
     display: flex;
+    flex-direction: column;
 
 }
+
