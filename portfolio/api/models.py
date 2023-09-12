@@ -21,13 +21,18 @@ class Projects(models.Model):
     def __str__(self):
         return self.name
     
-class Socials(models.Model):
+class AboutMe(models.Model):
 
-    links = models.JSONField()
+    description = models.TextField()
+    tech_stack = models.JSONField()
+    socials = models.JSONField()
 
     class Meta:
 
-        verbose_name_plural = 'Socials'
+        verbose_name_plural = 'About Me'
+
+    def __str__(self):
+        return 'About'
 
 class Resume(models.Model):
 

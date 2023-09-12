@@ -8,16 +8,16 @@ class ProjectsSerializer(serializers.ModelSerializer):
         model = models.Projects
         fields = '__all__'
 
-class SocialsSerializer(serializers.Serializer):
+class AboutMeSerializer(serializers.ModelSerializer):
 
     class Meta:
 
-        model = models.Projects
+        model = models.AboutMe
         fields = '__all__'
 
-class ResumeSerializer(serializers.Serializer):
+class ResumeSerializer(serializers.ModelSerializer):
 
     class Meta:
 
-        model = models.Projects
+        model = models.Resume
         fields = '__all__'

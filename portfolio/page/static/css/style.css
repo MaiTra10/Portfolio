@@ -80,7 +80,7 @@ body {
     padding: 10px;
     width: fit-content;
     height: fit-content;
-    border: 2px solid var(--light);
+    border: min(0.12vw, 2px) solid var(--light);
     font-size: min(1.2vw, 18px);
     /* Disable text selection */
     -webkit-user-select: none;
@@ -98,6 +98,7 @@ body {
 .div_title > h1, .div_title > h5 {
 
     color: var(--light);
+    font-weight: lighter;
 
 }
 
