@@ -89,6 +89,12 @@ body {
 
 }
 
+.div_title > h1 {
+
+    letter-spacing: 2px;
+
+}
+
 .div_title > h1, .div_title > h5 {
 
     color: var(--light);

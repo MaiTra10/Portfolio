@@ -14,11 +14,6 @@ function goToAPI() {
 
 }
 
-let amButtom = document.getElementById('am_button')
-let projectsButtom = document.getElementById('projects_button')
-let resumeButtom = document.getElementById('resume_button')
-let contactButtom = document.getElementById('contact_button')
-
 function change_input(text) {
 
     document.getElementById('urlInput').value = 'http://127.0.0.1:8000' + text
@@ -48,4 +43,43 @@ function afContact() {
 
     change_input('/api/contact')
     
+}
+
+function sendRequest() {
+
+    input = document.getElementById('urlInput').value
+
+    if (input == '') {
+
+        console.log('No Input')
+
+    } else {
+
+        return fetch(input)
+            .then((response) => {
+
+                if (response.ok) {
+
+                    const statusCode = response.status
+
+                    return response.json().then((data) => {
+
+                        console.log(statusCode)
+                        console.log(data)
+                        return { statusCode, data };
+
+                    })
+
+                } else {
+
+                    throw new Error(`Request failed with the status code: ${response.status}`)
+
+                }
+
+            }).catch((error) => {
+
+                console.log(error)
+
+            })
+    }
 }
