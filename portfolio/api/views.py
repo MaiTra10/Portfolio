@@ -24,6 +24,6 @@ class ResumeView(APIView):
 
     def get(self, request):
 
-        serializer = ResumeSerializer(models.Resume.objects.all())
+        serializer = ResumeSerializer(models.Resume.objects.all(), many = True)
 
         return Response(serializer.data)

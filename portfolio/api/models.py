@@ -42,3 +42,6 @@ class Resume(models.Model):
     class Meta:
 
         verbose_name_plural = 'Resume'
+
+    def __str__(self):
+        return 'Resume'
