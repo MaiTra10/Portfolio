@@ -30,7 +30,7 @@
 
 ::-webkit-scrollbar-thumb {
 
-    background-color: var(--scrollbar_thumb);
+    background-color: var(--scrollbar_thumb)
     border-radius: 0.75vw;
 
 }
