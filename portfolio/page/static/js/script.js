@@ -78,13 +78,15 @@ async function sendRequest() {
 
     response = await fetchFunc(input, method)
 
-    console.log(response[0].socials[Object.keys(response[0].socials)[0]].link)
-
     let html = ''
+
+    display = document.getElementsByClassName('display')[0]
 
     if (input == 'http://127.0.0.1:8000/api/about/') {
 
         html = createAM(response[0])
+
+        display.innerHTML += html
 
     } else if (input == 'http://127.0.0.1:8000/api/projects/') {
 
@@ -110,16 +112,35 @@ async function sendRequest() {
 
 function createAM(response) {
 
-    linksHTML = ''
-
     socials = response.socials
     socialsKeys = Object.keys(socials)
+
+    linksHTML = ''
 
     for (let i = 0; i < socialsKeys.length; i++) {
 
         linksHTML += `<a href="${socials[socialsKeys[i]].link}" target="_blank"><i class="${socials[socialsKeys[i]].icon}"><p>${socialsKeys[i]}</p></i></a>`
 
     } 
+
+    techStack = response.tech_stack
+    techStackKeys = Object.keys(techStack)
+
+    techStackHTML = ''
+
+    for (let i = 0; i < techStackKeys.length; i++) {
+
+        if (techStackKeys[i].split('-')[0] == 'simple') {
+
+            techStackHTML += `<i><iconify-icon icon="${techStackKeys[i]}"></iconify-icon><p>${techStack[techStackKeys[i]]}</p></i>`
+
+        } else {
+
+            techStackHTML += `<i class="${techStackKeys[i]}"><p>${techStack[techStackKeys[i]]}</p></i>`
+
+        }
+
+    }
 
     let html =  `<div class="div_am_container">
                 <div class="am_header">
@@ -132,15 +153,7 @@ function createAM(response) {
                     <div class="am_tech">
                         <i class="bi bi-stack"><p>My Tech Stack</p></i>
                         <div class="am_stack">
-                            <i class="fa-brands fa-python"><p>Python</p></i>
-                            <i><iconify-icon icon="simple-icons:django"></iconify-icon><p>Django | Django REST Framework</p></i>
-                            <i class="bi bi-window-stack"><p>HTML | CSS | JavaScript</p></i>
-                            <i class="fa-brands fa-aws"><p>Amazon Web Services</p></i>
-                            <i><iconify-icon icon="simple-icons:terraform"></iconify-icon><p>Terraform</p></i>
-                            <i><iconify-icon icon="simple-icons:postgresql"></iconify-icon><p>PostgreSQL</p></i>
-                            <i class="fa-brands fa-docker"><p>Docker</p></i>
-                            <i class="fa-brands fa-linux"><p>Linux | Debian</p></i>
-                            <i class="fa-brands fa-raspberry-pi"><p>Raspberry Pi</p></i>
+                            ${techStackHTML}
                         </div>
                     </div>
                     <div class="am_links">
@@ -153,7 +166,7 @@ function createAM(response) {
             </div>`
 
 
-    console.log(html)
+    return html
 
 }
 

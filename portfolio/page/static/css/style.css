@@ -10,7 +10,7 @@
     --acc_2: #448C42;
     --light: #E6E7EF;
     --scrollbar_track: #393939;
-    --scrollbar_thumb: var(--light);
+    --scrollbar_thumb: rgb(0, 0, 0, 0.4);
     --scrollbar_thumb_active: #696969;
 
 }
@@ -359,9 +359,213 @@ body {
     margin: 0% 10%;
     margin-block: calc(2vh);
     background-color: var(--dark);
-    padding: 0.75vw;
+    padding: 2vw;
     display: flex;
     flex-direction: column;
 
 }
 
+.display {
+
+    overflow-y: scroll;
+
+}
+
+
+
+/* About Me + Resume Styles */
+
+.div_resume_container, .div_am_container {
+
+    width: 600px;
+    height: fit-content;
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0, 0.2);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    margin-bottom: 20px;
+
+}
+
+.resume_header > h1, .am_header > h1 {
+
+    font-size: 18px;
+    font-weight: lighter;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 20px;
+
+}
+
+.resume_header > h1 > i, .am_header > h1 > i {
+
+    margin-right: 10px;
+
+}
+
+.resume_buttons {
+
+    margin-inline: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+}
+
+.resume_buttons a {
+
+    font-size: 14px;
+    padding: 10px 15px;
+    color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.075);
+    transition: all 250ms ease-in-out;
+    width: fit-content;
+
+}
+
+.resume_buttons > a > i {
+
+    margin-left: 5px;
+
+}
+
+.resume_buttons > a:hover {
+
+    background-color: rgba(255, 255, 255, 0.0325);
+
+}
+
+/**/
+
+.am_body {
+
+    margin: 0px 20px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.075);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    font-weight: lighter;
+    line-height: 18px;
+
+}
+
+.am_tech_and_links {
+
+    display: flex;
+
+}
+
+.am_tech {
+
+    background-color: rgba(255, 255, 255, 0.075);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+    margin: 20px;
+    white-space: nowrap;
+
+}
+
+.am_tech > div {
+
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    margin-top: 3px;
+    border-radius: 5px;
+
+}
+
+.am_tech > div > i:not(:last-child) {
+
+    margin-bottom: 5px;
+
+}
+
+.am_tech > i, .am_tech > div > i {
+
+    display: flex;
+
+}
+
+.am_tech > i > p, .am_tech > div > i > p {
+
+    font-size: 10px;
+    font-style: normal;
+    margin-left: 5px;
+
+}
+
+.am_links {
+
+    background-color: rgba(255, 255, 255, 0.075);
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 20px;
+    margin-bottom: 70px;
+    margin-right: 20px;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: lighter;
+    text-align: center;
+    width: 100%;
+    
+
+}
+
+.am_links > h1 {
+
+    font-size: 14px;
+    margin-bottom: 8px;
+
+}
+
+.am_links > h1 > i {
+
+    margin-right: 10px;
+
+}
+
+.links {
+
+    height: calc(100% - 24px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.links > a > i {
+
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    padding: 10px 15px;
+    color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.075);
+    transition: all 250ms ease-in-out;
+    width: 100%;
+
+}
+
+.links > a > i:hover {
+
+    background-color: rgba(255, 255, 255, 0.0325);
+
+}
+
+.links > a > i > p {
+
+    margin-left: 5px;
+    font-style: normal;
+    line-height: 17px;
+
+}
+
+/* End About Me + Resume Styles */
