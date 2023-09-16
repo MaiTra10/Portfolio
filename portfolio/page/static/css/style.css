@@ -250,6 +250,7 @@ body {
     padding: 1vw;
     background-color: rgba(0, 0, 0, 0.075);
     border-radius: 2vw;
+    margin-top: 1vh;
 
 }
 
@@ -353,7 +354,7 @@ body {
 .div_container_display {
 
     width: calc(100% - 20%);
-    height: max(65vh, 340px);
+    height: max(60vh, 320px);
     border-radius: 0.75vw;
     margin: 0% 10%;
     margin-block: calc(2vh);
