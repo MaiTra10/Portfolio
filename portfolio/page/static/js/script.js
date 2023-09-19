@@ -45,6 +45,44 @@ function afContact() {
     
 }
 
+function removeCard(e) {
+
+    e.parentElement.parentElement.parentElement.remove()
+
+}
+
+function showRawResponse(e) {
+
+    cardElement = e.parentElement.parentElement.firstElementChild
+
+    cardElement.firstElementChild.classList.add('hide')
+    cardElement.firstElementChild.classList.remove('show')
+
+    cardElement.lastElementChild.classList.add('show')
+    cardElement.lastElementChild.classList.remove('hide')
+
+    e.innerHTML = 'Hide Raw Response'
+
+    e.setAttribute('onClick', 'hideRawResponse(this)')
+
+}
+
+function hideRawResponse(e) {
+
+    cardElement = e.parentElement.parentElement.firstElementChild
+
+    cardElement.firstElementChild.classList.add('show')
+    cardElement.firstElementChild.classList.remove('hide')
+
+    cardElement.lastElementChild.classList.add('hide')
+    cardElement.lastElementChild.classList.remove('show')
+
+    e.innerHTML = 'Show Raw Response'
+
+    e.setAttribute('onClick', 'showRawResponse(this)')
+
+}
+
 async function fetchFunc(url, method) {
 
     try {
@@ -60,6 +98,33 @@ async function fetchFunc(url, method) {
         return error
 
     }
+}
+
+function createHTML(html, rawResponse) {
+
+    return `
+            <div class="div_card_container">
+                <div class="pointer_container">
+                    <h1>></h1>
+                </div>
+                <div class="card_container">
+                    <div class="card">
+                        ${html}
+                        <div class="raw_response">
+                            <p>
+                                Status Code: 200
+                            </p>
+                            <pre><br>${rawResponse}</pre>
+                        </div>
+                    </div>
+                    <div class="options">
+                        <p onclick="removeCard(this)">Remove</p>
+                        <p onclick="showRawResponse(this)">View Raw Response</p>
+                    </div>
+                </div>
+            </div>
+    `
+
 }
 
 async function sendRequest() {
@@ -86,7 +151,7 @@ async function sendRequest() {
 
         html = createAM(response[0])
 
-        display.insertAdjacentHTML('afterbegin', html)
+        display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
 
     } else if (input == 'http://127.0.0.1:8000/api/projects/') {
 
