@@ -86,7 +86,7 @@ async function sendRequest() {
 
         html = createAM(response[0])
 
-        display.innerHTML += html
+        display.insertAdjacentHTML('afterbegin', html)
 
     } else if (input == 'http://127.0.0.1:8000/api/projects/') {
 
