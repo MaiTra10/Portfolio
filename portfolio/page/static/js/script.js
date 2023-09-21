@@ -230,12 +230,116 @@ function createAM(response) {
                 </div>
             </div>`
 
+    return html
+
+}
+
+function createTechHTML(json) {
+
+    jsonKeys = Object.keys(json)
+    html = ''
+
+    for (let i = 0; i < jsonKeys.length; i++) {
+
+        if (jsonKeys[i].split('-')[0] == 'simple') {
+
+            html += `<i><iconify-icon icon="${jsonKeys[i]}"></iconify-icon><p>${json[jsonKeys[i]]}</p></i>`
+
+        } else {
+
+            html += `<i class="${jsonKeys[i]}"><p>${json[jsonKeys[i]]}</p></i>`
+
+        }
+
+    }
 
     return html
 
 }
 
 function createProject(response) {
+
+    namePrjct = response.name
+    imgURL = response.image
+    diagramURL = response.diagram
+    links = response.links
+    description = response.description
+    clientside = response.frontend
+    backend = response.backend
+    db = response.database
+    tools = response.tools
+    host = response.host
+
+    csTechHTML = createTechHTML(clientside)
+
+    console.log(csTechHTML)
+
+    beTechHTML = createTechHTML(backend)
+
+    console.log(beTechHTML)
+
+    dbTechHTML = createTechHTML(db)
+
+    console.log(dbTechHTML)
+
+    toolsTechHTML = createTechHTML(tools)
+
+    console.log(toolsTechHTML)
+
+    hostTechHTML = createTechHTML(host)
+
+    console.log(hostTechHTML)
+
+    let html = `<div class="div_card">
+                    <div class="card_header">
+                        <img src="${imgURL}" alt="">
+                        <h1>${namePrjct}</h1>
+                        <a href="#"><i class="bi bi-diagram-2-fill"><p>Diagram</p></i></a>
+                        <a href="https://github.com/MaiTra10/prjctVes", target="_blank"><i class="bi bi-github"><p>GitHub</p></i></a>
+                    </div>
+                    <div class="card_body">
+                        <p>${description}</p>
+                    </div>
+                    <div class="card_tech">
+                        <div class="tech_cs">
+                            <i class="bi bi-window"><p>Client-side</p></i>
+                            <div>
+                                <i class="fa-brands fa-python"><p>Python</p></i>
+                                <i class="bi bi-discord"><p>discord.py</p></i>
+                            </div>
+                        </div>
+                        <div class="tech_be">
+                            <i class="bi bi-hdd-rack"><p>Backend</p></i>
+                            <div>
+                                <i class="fa-brands fa-python"><p>Python</p></i>
+                                <i class="fa-brands fa-aws"><p>API Gateway</p></i>
+                                <i class="fa-brands fa-aws"><p>Lambda</p></i>
+                            </div>
+                        </div>
+                        <div class="tech_db">
+                            <i class="bi bi-database"><p>Database</p></i>
+                            <div>
+                                <i class="fa-brands fa-aws"><p>DynamoDB</p></i>
+                                <i class="fa-brands fa-aws"><p>Parameter Store</p></i>
+                            </div>
+                        </div>
+                        <div class="tech_tools">
+                            <i class="bi bi-nut"><p>Tools</p></i>
+                            <div>
+                                <i><iconify-icon icon="simple-icons:terraform"></iconify-icon><p>Terraform</p></i>
+                            </div>
+                        </div>
+                        <div class="tech_host">
+                            <i class="bi bi-clouds"><p>Host</p></i>
+                            <div>
+                                <i class="fa-brands fa-docker"><p>Docker</p></i>
+                                <i class="fa-brands fa-linux"><p>Linux</p></i>
+                                <i class="fa-brands fa-raspberry-pi"><p>Raspberry Pi</p></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    `
 
     return
 
