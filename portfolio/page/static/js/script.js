@@ -157,7 +157,9 @@ async function sendRequest() {
 
         for (let i = 0; i < response.length; i++) {
 
-            html += createProject(response[i])
+            html = createProject(response[i])
+
+            display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
 
         }
 
@@ -234,10 +236,16 @@ function createAM(response) {
 
 }
 
-function createTechHTML(json) {
+function createTechHTML(json, createFor) {
 
-    jsonKeys = Object.keys(json)
-    html = ''
+    if (json[0] == '') {
+
+        return ''
+
+    }
+
+    let jsonKeys = Object.keys(json)
+    let html = ''
 
     for (let i = 0; i < jsonKeys.length; i++) {
 
@@ -253,95 +261,102 @@ function createTechHTML(json) {
 
     }
 
+    let classJSON = JSON.parse(`{
+        
+        "clientside": {
+
+            "title": "Cient-side",
+            "icon": "bi bi-window",
+            "class": "tech_cs"
+
+        },
+        "backend": {
+
+            "title": "Backend",
+            "icon": "bi bi-hdd-rack",
+            "class": "tech_be"
+
+        },
+        "db": {
+
+            "title": "Database",
+            "icon": "bi bi-database",
+            "class": "tech_db"
+
+        },
+        "tools": {
+
+            "title": "Tools",
+            "icon": "bi bi-nut",
+            "class": "tech_tools"
+
+        },
+        "host": {
+
+            "title": "Host",
+            "icon": "bi bi-clouds",
+            "class": "tech_host"
+
+        }
+
+    }`)
+
+    html = `<div class=${classJSON[createFor]['class']}>
+                <i class=${classJSON[createFor]['icon']}><p>${classJSON[createFor]['title']}</p></i>
+                <div>
+                    ${html}
+                </div>
+                </div>
+    `
+
     return html
 
 }
 
 function createProject(response) {
 
-    namePrjct = response.name
-    imgURL = response.image
-    diagramURL = response.diagram
-    links = response.links
-    description = response.description
-    clientside = response.frontend
-    backend = response.backend
-    db = response.database
-    tools = response.tools
-    host = response.host
+    let namePrjct = response.name
+    let imgURL = response.image
+    let diagramURL = response.diagram
+    let links = response.links
+    let description = response.description
+    let clientside = response.frontend
+    let backend = response.backend
+    let db = response.database
+    let tools = response.tools
+    let host = response.host
 
-    csTechHTML = createTechHTML(clientside)
+    let csTechHTML = createTechHTML(clientside, 'clientside')
 
-    console.log(csTechHTML)
+    let beTechHTML = createTechHTML(backend, 'backend')
 
-    beTechHTML = createTechHTML(backend)
+    let dbTechHTML = createTechHTML(db, 'db')
 
-    console.log(beTechHTML)
+    let toolsTechHTML = createTechHTML(tools, 'tools')
 
-    dbTechHTML = createTechHTML(db)
-
-    console.log(dbTechHTML)
-
-    toolsTechHTML = createTechHTML(tools)
-
-    console.log(toolsTechHTML)
-
-    hostTechHTML = createTechHTML(host)
-
-    console.log(hostTechHTML)
+    let hostTechHTML = createTechHTML(host, 'host')
 
     let html = `<div class="div_card">
                     <div class="card_header">
-                        <img src="${imgURL}" alt="">
+                        <img src="/../../../${imgURL}" alt="">
                         <h1>${namePrjct}</h1>
-                        <a href="#"><i class="bi bi-diagram-2-fill"><p>Diagram</p></i></a>
-                        <a href="https://github.com/MaiTra10/prjctVes", target="_blank"><i class="bi bi-github"><p>GitHub</p></i></a>
+                        <a href="${diagramURL}"><i class="bi bi-diagram-2-fill"><p>Diagram</p></i></a>
+                        <a href=${links['Github Repository']}, target="_blank"><i class="bi bi-github"><p>GitHub</p></i></a>
                     </div>
                     <div class="card_body">
                         <p>${description}</p>
                     </div>
                     <div class="card_tech">
-                        <div class="tech_cs">
-                            <i class="bi bi-window"><p>Client-side</p></i>
-                            <div>
-                                <i class="fa-brands fa-python"><p>Python</p></i>
-                                <i class="bi bi-discord"><p>discord.py</p></i>
-                            </div>
-                        </div>
-                        <div class="tech_be">
-                            <i class="bi bi-hdd-rack"><p>Backend</p></i>
-                            <div>
-                                <i class="fa-brands fa-python"><p>Python</p></i>
-                                <i class="fa-brands fa-aws"><p>API Gateway</p></i>
-                                <i class="fa-brands fa-aws"><p>Lambda</p></i>
-                            </div>
-                        </div>
-                        <div class="tech_db">
-                            <i class="bi bi-database"><p>Database</p></i>
-                            <div>
-                                <i class="fa-brands fa-aws"><p>DynamoDB</p></i>
-                                <i class="fa-brands fa-aws"><p>Parameter Store</p></i>
-                            </div>
-                        </div>
-                        <div class="tech_tools">
-                            <i class="bi bi-nut"><p>Tools</p></i>
-                            <div>
-                                <i><iconify-icon icon="simple-icons:terraform"></iconify-icon><p>Terraform</p></i>
-                            </div>
-                        </div>
-                        <div class="tech_host">
-                            <i class="bi bi-clouds"><p>Host</p></i>
-                            <div>
-                                <i class="fa-brands fa-docker"><p>Docker</p></i>
-                                <i class="fa-brands fa-linux"><p>Linux</p></i>
-                                <i class="fa-brands fa-raspberry-pi"><p>Raspberry Pi</p></i>
-                            </div>
-                        </div>
+                        ${csTechHTML}
+                        ${beTechHTML}
+                        ${dbTechHTML}
+                        ${toolsTechHTML}
+                        ${hostTechHTML}
                     </div>
                 </div>
     `
 
-    return
+    return html
 
 }
 

@@ -568,6 +568,183 @@ body {
 
 /* End About Me + Resume Styles */
 
+/* Project Styles */
+
+.div_card {
+
+    width: 600px;
+    height: fit-content;
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0, 0.2);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+
+}
+
+.card_header {
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+.card_header > h1 {
+
+    font-size: 18px;
+    font-weight: lighter;
+    color: rgba(255, 255, 255, 0.5);
+    padding-block: 20px;
+    margin-right: 0;
+
+}
+
+.card_header > img {
+
+    height: 24px;
+    border-radius: 100%;
+    border: solid 2px rgba(255, 255, 255, 0.5);
+    margin-left: 20px;
+    margin-right: 10px;
+
+}
+
+.card_header > a {
+
+    font-size: 16px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.075);
+    transition: all 250ms ease-in-out;
+    width: 100%;
+
+}
+
+.card_header > a:is(:last-child) {
+
+    margin-right: 20px;
+
+}
+
+.card_header > a:hover {
+
+    background-color: rgba(255, 255, 255, 0.0325);
+
+}
+
+.card_header > a > i {
+
+    display: flex;
+
+}
+
+.card_header > a > i > p {
+
+    font-size: 10px;
+    font-style: normal;
+    margin-left: 5px;
+    line-height: 17px;
+
+}
+
+.card_body {
+
+    margin: 5px 20px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.075);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    font-weight: lighter;
+    line-height: 18px;
+
+}
+
+.card_tech {
+
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: space-around;
+    margin-inline: 20px;
+    margin-top: 16px;
+    margin-bottom: 20px;
+
+}
+
+.card_tech > div {
+
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    height: fit-content;
+
+}
+
+.card_tech > div > div {
+
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    margin-top: 3px;
+    border-radius: 5px;
+
+}
+
+.card_tech > div > div > i:not(:last-child) {
+
+    margin-bottom: 5px;
+
+}
+
+.card_tech > div > i, .card_tech > div > div > i {
+
+    display: flex;
+
+}
+
+.card_tech > div > i > p, .card_tech > div > div > i > p {
+
+    font-size: 10px;
+    font-style: normal;
+    margin-left: 5px;
+
+}
+
+.card_tech .tech_cs {
+
+    background-color: rgb(229, 102, 52, 0.25);
+
+}
+
+.card_tech .tech_be {
+
+    background-color: rgb(79, 139, 69, 0.25);
+
+}
+
+.card_tech .tech_db {
+
+    background-color: rgb(59, 101, 139, 0.25);
+
+}
+
+.card_tech .tech_tools {
+
+    background-color: rgba(215, 215, 215, 0.25);
+
+}
+
+.card_tech .tech_host {
+
+    background-color: rgba(9, 192, 208, 0.25);
+
+}
+
+/* End Project Styles */
+
 /* card_container styles */
 
 .div_card_container {
