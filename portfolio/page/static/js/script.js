@@ -338,10 +338,10 @@ function createProject(response) {
 
     let html = `<div class="div_card">
                     <div class="card_header">
-                        <img src="/../../../${imgURL}" alt="">
+                        <img src="static/media${imgURL}" alt="">
                         <h1>${namePrjct}</h1>
-                        <a href="${diagramURL}"><i class="bi bi-diagram-2-fill"><p>Diagram</p></i></a>
-                        <a href=${links['Github Repository']}, target="_blank"><i class="bi bi-github"><p>GitHub</p></i></a>
+                        <a href="static/media${diagramURL}" target="_blank"><i class="bi bi-diagram-2-fill"><p>Diagram</p></i></a>
+                        <a href=${links['Github Repository']} target="_blank"><i class="bi bi-github"><p>GitHub</p></i></a>
                     </div>
                     <div class="card_body">
                         <p>${description}</p>

@@ -3,8 +3,8 @@ from django.db import models
 class Projects(models.Model):
 
     name = models.CharField(max_length = 50)
-    image = models.ImageField(upload_to = 'project_thumbnails')
-    diagram = models.ImageField(upload_to = 'project_diagrams')
+    image = models.ImageField(upload_to = '')
+    diagram = models.ImageField(upload_to = '')
     links = models.JSONField()
     description = models.TextField()
     frontend = models.JSONField()
@@ -36,8 +36,8 @@ class AboutMe(models.Model):
 
 class Resume(models.Model):
 
-    pdf = models.FileField(upload_to = 'resume')
-    image = models.ImageField(upload_to = 'resume')
+    pdf = models.FileField(upload_to = '')
+    image = models.ImageField(upload_to = '')
 
     class Meta:
 
