@@ -45,3 +45,14 @@ class Resume(models.Model):
 
     def __str__(self):
         return 'Resume'
+    
+class Contact(models.Model):
+
+    html = models.TextField()
+
+    class Meta:
+
+        verbose_name_plural = 'Contact'
+
+    def __str__(self):
+        return 'Contact'

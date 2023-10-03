@@ -803,18 +803,6 @@ body {
 
 }
 
-.hide {
-
-    display: none;
-
-}
-
-.show {
-
-    display: flex;
-
-}
-
 .options {
 
     display: flex;
@@ -839,3 +827,152 @@ body {
 }
 
 /* End card_container styles */
+
+/* Contact styles */
+
+.div_contact {
+
+    width: 600px;
+    height: fit-content;
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0, 0.2);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+
+}
+
+.contact_header > h1 {
+
+    font-size: 18px;
+    font-weight: lighter;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 20px;
+
+}
+
+.contact_header > h1 > i {
+
+    margin-right: 10px;
+
+}
+
+.content_form {
+
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    font-weight: lighter;
+    display: flex;
+    flex-direction: column;
+    margin-inline: 20px;
+    margin-bottom: 20px;
+    padding: 14px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.075);
+
+}
+
+.content_form > div {
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.content_form > div > div {
+
+    width: 100%;
+
+}
+
+.content_form > div > div:nth-child(1) {
+
+    margin-right: 20px;
+
+}
+
+.content_form textarea {
+
+    resize: none;
+
+}
+
+.content_form input, .content_form textarea {
+
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.075);
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 14px;
+    color: rgba(255, 255, 255, 0.5);
+
+}
+
+.content_form input:focus, .content_form textarea:focus {
+
+    outline: none;
+
+}
+
+.content_form textarea::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+.content_form textarea::-webkit-scrollbar-track {
+
+    background-color: transparent;
+    border-radius: 8px;
+
+}
+
+.content_form textarea::-webkit-scrollbar-thumb {
+
+    background-color: rgba(255, 255, 255, 0.075);
+    border-radius: 8px;
+
+}
+
+.content_form textarea::-webkit-scrollbar-thumb:active {
+
+    background-color: rgba(255, 255, 255, 0.15);
+
+}
+
+.content_form > button {
+
+    background-color: rgba(255, 255, 255, 0.075);
+    border: none;
+    font-size: 14px;
+    padding-block: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    margin-top: 14px;
+    transition: all 250ms ease-in-out;
+    cursor: pointer;
+
+}
+
+.content_form > button:hover {
+
+    background-color: rgba(255, 255, 255, 0.0325);
+
+}
+
+/* End Contact styles */
+
+.hide {
+
+    display: none;
+
+}
+
+.show {
+
+    display: flex;
+
+}

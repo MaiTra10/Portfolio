@@ -21,3 +21,10 @@ class ResumeSerializer(serializers.ModelSerializer):
 
         model = models.Resume
         fields = '__all__'
+
+class ContactSerializer(serializers.ModelSerializer):
+
+    class Meta:
+
+        model = models.Contact
+        fields = '__all__'

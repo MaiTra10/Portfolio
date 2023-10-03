@@ -102,6 +102,8 @@ async function fetchFunc(url, method) {
 
 function createHTML(html, rawResponse) {
 
+    escapedResponse = rawResponse.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
     return `
             <div class="div_card_container">
                 <div class="pointer_container">
@@ -114,7 +116,7 @@ function createHTML(html, rawResponse) {
                             <p>
                                 Status Code: 200
                             </p>
-                            <pre><br>${rawResponse}</pre>
+                            <pre><br>${escapedResponse}</pre>
                         </div>
                     </div>
                     <div class="options">
@@ -386,6 +388,6 @@ function createResume(response) {
 
 function createCM(response) {
 
-    return
+    return response.html
 
 }
