@@ -167,9 +167,13 @@ async function sendRequest() {
 
         html = createResume(response[0])
 
+        display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
+
     } else if (input == 'http://127.0.0.1:8000/api/contact/') {
 
         html = createCM(response[0])
+
+        display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
 
     }
 
@@ -326,6 +330,8 @@ function createProject(response) {
     let tools = response.tools
     let host = response.host
 
+    console.log(response)
+
     let csTechHTML = createTechHTML(clientside, 'clientside')
 
     let beTechHTML = createTechHTML(backend, 'backend')
@@ -362,7 +368,19 @@ function createProject(response) {
 
 function createResume(response) {
 
-    return
+    html = `<div class="div_resume_container">
+                <div class="resume_header">
+                    <h1><i class="bi bi-file-earmark-person-fill"></i>Resume</h1>
+                </div>
+                <div class="resume_buttons">
+                    <a href="static/media${response.pdf}" download="static/media${response.pdf}">Download as PDF <i class="bi bi-filetype-pdf"></i></a>
+                    <a href="static/media${response.image}" download="static/media${response.image}">Download as PNG <i class="bi bi-file-earmark-image"></i></a>
+                    <a href="static/media${response.pdf}" target="_blank">View on Page <i class="bi bi-box-arrow-up-right"></i></a>
+                </div>
+            </div>
+    `
+
+    return html
 
 }
 
