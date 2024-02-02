@@ -179,6 +179,8 @@ async function sendRequest() {
 
     }
 
+    display.prepend(document.getElementsByClassName('top_blur')[0])
+
     inputElement.value = ''
 
 }

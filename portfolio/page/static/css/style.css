@@ -353,7 +353,7 @@ body {
 
 .div_container_display {
 
-    width: calc(100% - 20%);
+    width: 80%;
     height: max(60vh, 320px);
     border-radius: 0.75vw;
     margin: 0% 10%;
@@ -368,10 +368,32 @@ body {
 .display {
 
     overflow-y: scroll;
+}
+
+.top_blur {
+
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    background-image: linear-gradient(to top, rgba(255,255,255,0), var(--dark) 100%);
+    width: calc(80% - 4.5vw);
+    height: 30px;
+    z-index: 3;
 
 }
 
+.bottom_blur {
 
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0), var(--dark) 100%);
+    width: calc(80% - 4.5vw);
+    margin-top: calc(max(60vh, 320px) - 2vh - 30px - 2vw);
+    height: 30px;
+    z-index: 3;
+    
+}
 
 /* About Me + Resume Styles */
 
@@ -447,6 +469,7 @@ body {
     font-size: 12px;
     font-weight: lighter;
     line-height: 18px;
+    z-index: 0;
 
 }
 
@@ -580,6 +603,7 @@ body {
     display: flex;
     flex-direction: column;
     user-select: none;
+    z-index: 0;
 
 }
 
