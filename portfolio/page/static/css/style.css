@@ -6,7 +6,7 @@
 :root {
 
     --dark: #17261E;
-    --acc_1: #034D20;
+    --acc_1: #346B4E;
     --acc_2: #448C42;
     --light: #E6E7EF;
     --scrollbar_track: #393939;
@@ -58,7 +58,7 @@ a{
 
 body {
 
-    background: linear-gradient(180deg, rgba(23,38,30,1) 0%, rgba(11,19,15,1) 125%);
+    background: linear-gradient(180deg, rgb(28, 31, 29) 80%, rgb(0, 0, 0) 125%);
     width: 100vw;
     height: 100vh;
 
@@ -67,7 +67,7 @@ body {
 .div_header {
 
     height: min(10vw, 140px);
-    background-color: #0B120E;
+    background-color: #0E100E;
     position: relative;
     display: flex;
     justify-content: center;
@@ -106,7 +106,7 @@ body {
 
     display: block;
     width: 100%;
-    height: min(8vw, 112px);
+    height: min(10vw, 112px);
     transform: rotate(180deg);
 
 
@@ -162,7 +162,7 @@ body {
     transition: all 250ms ease-in-out;
     
     /* temporary */
-    display: none;
+    /*display: none;*/
 
 }
 
@@ -180,7 +180,7 @@ body {
     width: 60vw;
     padding: min(2vw, 20px);
     padding-inline: min(4vw, 32px);
-    background-color: #203529;
+    background-color: #121412;
     border-radius: min(1vw, 10px);
     line-height: min(4vw, 32px);
     letter-spacing: 1px;
@@ -199,7 +199,7 @@ body {
     margin-block: min(2vw, 28px);
     padding-inline: min(2vw, 28px);
     padding-block: min(1.5vw, 22px);
-    background-color: #448C42;
+    background-color: var(--acc_1);
     border-radius: min(1vw, 10px);
     font-size: min(1.4vw, 18px);
     transition: all 250ms ease-in-out;
@@ -214,7 +214,7 @@ body {
 
 .div_welcome_button:hover {
 
-    background-color: #203529;
+    background-color: #244a35;
     cursor: pointer;
 
 }
@@ -224,12 +224,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*visibility: hidden;
-    opacity: 0;*/
+    visibility: hidden;
+    opacity: 0;
     transition: all 250ms ease-in-out;
-    /*position: absolute;
+    position: absolute;
     top: 0;
-    left: 0;*/
+    left: 0;
 
 }
 
@@ -297,8 +297,15 @@ body {
     height: 40px;
     width: 350px;
     border-radius: 4vw;
-    background-color: #1d2f25;
+    background-color: #1d3b2b;
     color: var(--light);
+
+}
+
+.form_container > input::placeholder {
+
+    color: #90a59a;
+    opacity: 1;
 
 }
 
@@ -358,7 +365,7 @@ body {
     border-radius: 0.75vw;
     margin: 0% 10%;
     margin-block: calc(2vh);
-    background-color: var(--dark);
+    background-color: #141614;
     padding: 2vw;
     display: flex;
     flex-direction: column;
@@ -375,7 +382,7 @@ body {
     content: "";
     position: absolute;
     pointer-events: none;
-    background-image: linear-gradient(to top, rgba(255,255,255,0), var(--dark) 100%);
+    background-image: linear-gradient(to top, rgba(255,255,255,0), #141614 100%);
     width: calc(80% - 4.5vw);
     height: 30px;
     z-index: 3;
@@ -387,7 +394,7 @@ body {
     content: "";
     position: absolute;
     pointer-events: none;
-    background-image: linear-gradient(to bottom, rgba(255,255,255,0), var(--dark) 100%);
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0), #141614 100%);
     width: calc(80% - 4.5vw);
     margin-top: calc(max(60vh, 320px) - 2vh - 30px - 2vw);
     height: 30px;
@@ -810,7 +817,7 @@ body {
     padding: 40px;
     height: fit-content;
     border-radius: 10px;
-    background-color: #031a16;
+    background-color: #080F0E;
     user-select: none;
     display: none;
     flex-direction: column;
@@ -821,7 +828,7 @@ body {
 
     font-size: 12px;
     font-weight: bold;
-    color: #346b4e;
+    color: #346B4E;
     text-wrap: wrap;
 
 
