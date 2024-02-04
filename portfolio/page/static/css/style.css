@@ -7,11 +7,10 @@
 
     --dark: #17261E;
     --acc_1: #346B4E;
-    --acc_2: #448C42;
     --light: #E6E7EF;
     --scrollbar_track: #393939;
-    --scrollbar_thumb: rgb(0, 0, 0, 0.4);
-    --scrollbar_thumb_active: #696969;
+    --scrollbar_thumb: #101210;
+    --scrollbar_thumb_active: #222422;
 
 }
 /*scrollbar*/
@@ -297,14 +296,14 @@ body {
     height: 40px;
     width: 350px;
     border-radius: 4vw;
-    background-color: #1d3b2b;
+    background-color: #121412;
     color: var(--light);
 
 }
 
 .form_container > input::placeholder {
 
-    color: #90a59a;
+    color: #434645;
     opacity: 1;
 
 }
@@ -794,8 +793,6 @@ body {
 .pointer_container > h1 {
 
     color: rgba(255, 255, 255, 0.5);
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: lighter;
     font-size: 22px;
     margin-top: 20px;
     line-height: 22px;

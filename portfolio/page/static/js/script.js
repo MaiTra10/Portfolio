@@ -107,7 +107,7 @@ function createHTML(html, rawResponse) {
     return `
             <div class="div_card_container">
                 <div class="pointer_container">
-                    <h1>></h1>
+                    <h1><span class="material-symbols-outlined">arrow_right</span></h1>
                 </div>
                 <div class="card_container">
                     <div class="card">
