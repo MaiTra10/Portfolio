@@ -265,7 +265,7 @@ function createAM(response) {
                 </div>
                 <div class="am_tech_and_links">
                     <div class="am_tech">
-                        <i class="bi bi-stack"><p>My Tech Stack</p></i>
+                        <i class="bi bi-stack tech_header"><p>My Tech Stack</p></i>
                         <div class="am_stack">
                             ${techStackHTML}
                         </div>
@@ -349,12 +349,14 @@ function createTechHTML(json, createFor) {
     }`)
 
     html = `<div class=${classJSON[createFor]['class']}>
-                <i class=${classJSON[createFor]['icon']}><p>${classJSON[createFor]['title']}</p></i>
+                <i class="${classJSON[createFor]['icon']} tech_header"><p>${classJSON[createFor]['title']}</p></i>
                 <div>
                     ${html}
                 </div>
                 </div>
     `
+    console.log(classJSON[createFor]['icon'])
+    console.log(html)
 
     return html
 
