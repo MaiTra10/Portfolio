@@ -88,7 +88,7 @@ async function fetchFunc(url, method) {
 
     try {
 
-        let response = await fetch(url, { 'method': method})
+        let response = await fetch(url, {'method': method})
 
         let data = await response.json()
     
@@ -96,14 +96,22 @@ async function fetchFunc(url, method) {
 
     } catch(error) {
 
-        return error
+        return 'error'
 
     }
 }
 
 function createHTML(html, rawResponse) {
 
-    escapedResponse = rawResponse.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    try {
+
+        escapedResponse = rawResponse.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
+    } catch {
+
+        escapedResponse = rawResponse
+
+    }
 
     return `
             <div class="div_card_container">
@@ -153,6 +161,8 @@ async function sendRequest() {
 
     response = await fetchFunc(input, method)
 
+    console.log(response)
+
     let html = ''
 
     display = document.getElementsByClassName('display')[0]
@@ -184,6 +194,24 @@ async function sendRequest() {
         html = createCM(response[0])
 
         display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
+
+    } else {
+
+       if (response == 'error') {
+
+            console.log('Something went wrong while trying to contact this endpoint! Please try again or check the URL.')
+            displayFailMsg('Something went wrong while trying to contact this endpoint! Please try again or check the URL.')
+            return
+
+       }
+
+        html = `<div class="div_am_container">
+                    <div class="am_body external_response">
+                        <p>Since this is an external response, please click 'Show Raw Response' below to see what this endpoint has to say!</p>
+                    </div>
+                </div>`
+
+        display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response, null, 4)))
 
     }
 
@@ -412,7 +440,7 @@ let valid = false;
 function checkValid(input) {
 
     let text = input.value;
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const emailRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
 
     if(!emailRegex.test(text)) {
 
