@@ -31,6 +31,8 @@
                 <use xlink:href="#gentle-wave" x="50" y="6" fill="rgba(0, 0, 0, 0.2)"/>
             </g>
         </svg>
+        <div class="success_msg message" id="success"><i class="bi bi-check2-circle"></i><p>Something Went Right</p></div>
+        <div class="fail_msg message" id="fail"><i class="bi bi-x-circle"></i><p>Something Went Wrong</p></div>
         <div class='div_welcome'>
             <p class="p_welcome">
                 Hello and welcome to my portfolio! At first glance you might be wondering<br><br>
@@ -53,7 +55,7 @@
                         <option value="delete">DELETE</option>
                         <option value="options">OPTIONS</option>
                     </select>
-                    <input type="url", id="urlInput" name="urlInput" placeholder="Enter an endpoint here...">
+                    <input type="url" id="urlInput" class="input" name="urlInput" placeholder="Enter an endpoint here..." autocomplete="off" oninput="checkValid(this)" onfocusout="revertBorder(this)">
                     <button id="sendButton" type="button" onclick="sendRequest()">Send</button>
                 </form>
                 <div class="display_buttons">

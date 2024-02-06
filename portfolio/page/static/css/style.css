@@ -308,6 +308,24 @@ body {
 
 }
 
+.form_container > input {
+
+    border: 2px solid #121412;
+
+}
+
+.form_container > .input-border-red {
+
+    border: 2px solid rgb(184, 78, 78);
+
+}
+
+.form_container > .input-border-green {
+
+    border: 2px solid var(--acc_1);
+
+}
+
 .form_container > button {
 
     background-color: var(--acc_1);
@@ -1002,5 +1020,64 @@ body {
 .show {
 
     display: flex;
+
+}
+
+/* Fail/Success Message styles */
+
+.message {
+
+    position: absolute;
+    left: 50%;
+    top: calc(min(10vw, 140px) + min(10vw, 112px) - 2vw);
+    font-size: min(0.8vw, 12px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: fit-content;
+    white-space: nowrap;
+    height: min(2.4vw, 28px);
+    border-radius: calc((min(2.4vw, 28px))/2);
+    padding-inline: min(0.8vw, 12px);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+    transform: translateX(-50%);
+    transition: all 250ms ease-in-out;
+
+}
+
+.fail_msg {
+
+    background-color: rgb(184, 78, 78);
+    color: var(--light);
+    
+}
+
+.success_msg {
+
+    background-color: var(--acc_1);
+    color: var(--light);
+
+}
+
+.message > i {
+
+    margin-right: min(0.4vw, 6px);
+    line-height: 0px;
+
+}
+
+.message > p {
+
+    line-height: 0px;
+
+}
+
+.message-transition {
+
+    opacity: 1;
+    pointer-events: auto;
 
 }

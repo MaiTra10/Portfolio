@@ -18,6 +18,7 @@ function change_input(text) {
 
     document.getElementById('urlInput').value = 'http://127.0.0.1:8000' + text + '/'
     document.getElementById('methods').value = 'get'
+    valid = true
     
 }
 
@@ -134,14 +135,21 @@ async function sendRequest() {
     inputElement = document.getElementById('urlInput')
     input = inputElement.value
 
-    method = document.getElementById('methods').value
-
     if (input == '') {
 
-        console.log('No Input')
+        console.log('Endpoint field is empty!');
+        displayFailMsg('Endpoint field is empty!')
+        return
+
+    } else if (valid == false) {
+
+        console.log('Endpoint field is invalid! Please try again.');
+        displayFailMsg('Endpoint field is invalid! Please try again.')
         return
 
     }
+
+    method = document.getElementById('methods').value
 
     response = await fetchFunc(input, method)
 
@@ -182,6 +190,9 @@ async function sendRequest() {
     display.prepend(document.getElementsByClassName('top_blur')[0])
 
     inputElement.value = ''
+
+    console.log('Successfully loaded content!');
+    displaySuccessMsg('Successfully loaded content!')
 
 }
 
@@ -391,5 +402,91 @@ function createResume(response) {
 function createCM(response) {
 
     return response.html
+
+}
+
+// Endpoint input border manipulation
+
+let valid = false;
+
+function checkValid(input) {
+
+    let text = input.value;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if(!emailRegex.test(text)) {
+
+        input.classList.add("input-border-red");
+        input.classList.remove("input-border-green");
+        valid = false
+
+
+    } else {
+
+        input.classList.add("input-border-green");
+        input.classList.remove("input-border-red");
+        valid = true
+
+    }
+
+}
+
+function revertBorder(input) {
+
+    input.classList.remove("input-border-green");
+    input.classList.remove("input-border-red");
+
+
+}
+
+// Fail/Success message functions
+
+let successMsg = document.getElementById("success");
+let failMsg = document.getElementById("fail");
+
+function closeFailMsg() {
+
+    failMsg.classList.remove("message-transition");
+
+}
+
+function closeSuccessMsg() {
+
+    successMsg.classList.remove("message-transition");
+
+}
+
+function resetMsg() {
+
+    closeFailMsg();
+    closeSuccessMsg();
+
+}
+
+function displayFailMsg(msg) {
+
+    resetMsg();
+    failMsg.getElementsByTagName("p")[0].innerHTML = msg;
+    failMsg.classList.add("message-transition");
+
+    setTimeout(function() {
+
+        closeFailMsg();
+
+    }, 4000);
+
+}
+
+function displaySuccessMsg(msg) {
+
+    resetMsg();
+    successMsg.getElementsByTagName("p")[0].innerHTML = msg;
+    successMsg.classList.add("message-transition");
+
+    setTimeout(function() {
+
+        closeSuccessMsg();
+
+    }, 4000);
 
 }
