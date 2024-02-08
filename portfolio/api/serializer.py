@@ -14,6 +14,13 @@ class AboutMeSerializer(serializers.ModelSerializer):
 
         model = models.AboutMe
         fields = '__all__'
+        
+class ExperienceSerializer(serializers.ModelSerializer):
+
+    class Meta:
+
+        model = models.Experience
+        fields = '__all__'
 
 class ResumeSerializer(serializers.ModelSerializer):
 

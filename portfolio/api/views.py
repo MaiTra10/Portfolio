@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializer import ProjectsSerializer, AboutMeSerializer, ResumeSerializer, ContactSerializer
+from .serializer import ProjectsSerializer, AboutMeSerializer, ExperienceSerializer, ResumeSerializer, ContactSerializer
 from . import models
 
 class ProjectsView(APIView):
@@ -17,6 +17,14 @@ class AboutMeView(APIView):
     def get(self, request):
 
         serializer = AboutMeSerializer(models.AboutMe.objects.all(), many = True)
+
+        return Response(serializer.data)
+    
+class ExperienceView(APIView):
+
+    def get(self, request):
+
+        serializer = ExperienceSerializer(models.Experience.objects.all(), many = True)
 
         return Response(serializer.data)
     

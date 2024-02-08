@@ -33,6 +33,23 @@ class AboutMe(models.Model):
 
     def __str__(self):
         return 'About'
+    
+class Experience(models.Model):
+    
+    priority = models.IntegerField()
+    company = models.CharField(max_length = 75)
+    title = models.CharField(max_length = 75)
+    length = models.CharField(max_length = 30)
+    image = models.ImageField(upload_to = '')
+    description = models.TextField()
+    tech = models.JSONField()
+    
+    class Meta:
+
+        verbose_name_plural = 'Experiences'
+
+    def __str__(self):
+        return 'Experience'
 
 class Resume(models.Model):
 

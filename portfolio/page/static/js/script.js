@@ -28,6 +28,12 @@ function afAbout() {
     
 }
 
+function afExperience() {
+
+    change_input('/api/experience')
+    
+}
+
 function afProjects() {
 
     change_input('/api/projects')
