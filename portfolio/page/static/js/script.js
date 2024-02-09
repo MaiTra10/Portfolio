@@ -144,6 +144,16 @@ function createHTML(html, rawResponse) {
 
 }
 
+function getOrder(arr) {
+
+    const sortedResponse = response.slice().sort((a, b) => a.priority - b.priority);
+
+    const indexes = sortedResponse.map((obj) => response.indexOf(obj));
+
+    return indexes.reverse();
+
+}
+
 async function sendRequest() {
 
     inputElement = document.getElementById('urlInput')
@@ -167,19 +177,17 @@ async function sendRequest() {
 
     response = await fetchFunc(input, method)
 
-    console.log(response)
-
     let html = ''
 
     display = document.getElementsByClassName('display')[0]
 
-    if (input == 'http://127.0.0.1:8000/api/about/') {
+    if (input == 'http://127.0.0.1:8000/api/about/' || input == 'http://127.0.0.1:8000/api/about') {
 
         html = createAM(response[0])
 
         display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
 
-    } else if (input == 'http://127.0.0.1:8000/api/projects/') {
+    } else if (input == 'http://127.0.0.1:8000/api/projects/' || input == 'http://127.0.0.1:8000/api/projects') {
 
         for (let i = 0; i < response.length; i++) {
 
@@ -189,17 +197,29 @@ async function sendRequest() {
 
         }
 
-    } else if (input == 'http://127.0.0.1:8000/api/resume/') {
+    } else if (input == 'http://127.0.0.1:8000/api/resume/' || input == 'http://127.0.0.1:8000/api/resume') {
 
         html = createResume(response[0])
 
         display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
 
-    } else if (input == 'http://127.0.0.1:8000/api/contact/') {
+    } else if (input == 'http://127.0.0.1:8000/api/contact/' || input == 'http://127.0.0.1:8000/api/contact') {
 
         html = createCM(response[0])
 
         display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
+
+    } else if (input == 'http://127.0.0.1:8000/api/experience/' || input == 'http://127.0.0.1:8000/api/experience') {
+
+        let order = getOrder(response)
+
+        for (let i = 0; i < response.length;i ++) {
+
+            html = createEXP(response[order[i]])
+
+            display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
+
+        }
 
     } else {
 
@@ -289,6 +309,58 @@ function createAM(response) {
 
 }
 
+function createEXP(response) {
+
+    let company = response.company
+    let title = response.title
+    let length = response['length']
+    let imgURL = response.image
+    let description = response.description
+    let tech = response.tech
+
+    let forJSON = JSON.parse(`{
+
+        "AC Robotics": "experience_ac",
+        "General Dynamics - Mission Systems": "experience_gd"
+
+    }`)
+
+    let techHTML = createTechHTML(tech, forJSON[company])
+
+    let specialImgBGClassJSON = JSON.parse(`{
+
+        "AC Robotics": "ac_img",
+        "General Dynamics - Mission Systems": ""
+
+    }`)
+
+    let html = `<div class="div_card">
+                    <div class="exp_txt_container">
+                        <h1>${company}</h1>
+                        <h2>${title}<br>${length}</h2>
+                    </div>
+
+                    <div class="exp_content_container">
+                        <div class="exp_img_and_desc_container">
+                            <div class="exp_img ${specialImgBGClassJSON[company]}">
+                                <img src="static/media${imgURL}" alt="">
+                            </div>
+                            <div class="exp_desc">
+                                <p>
+                                    ${description}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="exp_tech_container">
+                            ${techHTML}
+                        </div>
+                    </div>
+                </div>`
+
+    return html
+
+}
+
 function createTechHTML(json, createFor) {
 
     if (json[0] == '') {
@@ -350,18 +422,32 @@ function createTechHTML(json, createFor) {
             "icon": "bi bi-clouds",
             "class": "tech_host"
 
+        },
+        "experience_ac": {
+
+            "title": "What We Used",
+            "icon": "bi bi-journals",
+            "class": "exp_tech ac_tech"
+
+        },
+        "experience_gd": {
+
+            "title": "On The Job Knowledge",
+            "icon": "bi bi-journals",
+            "class": "exp_tech"
+
         }
 
     }`)
 
-    html = `<div class=${classJSON[createFor]['class']}>
+    html = `<div class="${classJSON[createFor]['class']}">
                 <i class="${classJSON[createFor]['icon']} tech_header"><p>${classJSON[createFor]['title']}</p></i>
                 <div>
                     ${html}
                 </div>
                 </div>
     `
-    console.log(classJSON[createFor]['icon'])
+    console.log(classJSON[createFor]['class'])
     console.log(html)
 
     return html
@@ -410,8 +496,7 @@ function createProject(response) {
                         ${toolsTechHTML}
                         ${hostTechHTML}
                     </div>
-                </div>
-    `
+                </div>`
 
     return html
 

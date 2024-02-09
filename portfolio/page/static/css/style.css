@@ -1093,3 +1093,155 @@ body {
     pointer-events: auto;
 
 }
+
+/* EXPERIENCE STYLES */
+/* EXPERIENCE STYLES */
+/* EXPERIENCE STYLES */
+
+/* Experience Title Styles */
+
+.exp_txt_container {
+
+    margin: 20px 20px 0px 20px;
+
+}
+
+.exp_content_container {
+
+    margin: 0px 20px 20px 20px;
+
+}
+
+.exp_txt_container > h1, .exp_txt_container > h2 {
+
+    font-size: 16px;
+    font-weight: lighter;
+    color: rgba(255, 255, 255, 0.5);
+    margin-right: 0;
+}
+
+.exp_txt_container > h2 {
+
+    padding: 0;
+    font-size: 12px;
+    color: rgba(157, 157, 157, 0.5);
+
+}
+
+/* Experience Content Alignment */
+
+.exp_content_container {
+
+    display: flex;
+    margin-top: 10px;
+    gap: 10px;
+
+}
+
+/* Experience Image and Description Vertical Alignment */
+
+.exp_img_and_desc_container {
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+/* Experience Image Styling */
+
+.exp_img {
+
+    background-color: #000000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+
+}
+
+.exp_img > img {
+
+    height: 25px;
+    margin-block: 5px;
+
+
+}
+
+.ac_img {
+
+    background-color: #F8931F;
+
+}
+
+/* Experience Description Styling */
+
+.exp_desc {
+
+    padding: 10px 14px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.075);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    font-weight: lighter;
+    line-height: 18px;
+    margin-top: 10px;
+
+}
+
+/* Experience Tech Styling */
+
+.exp_tech_container {
+
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.exp_tech {
+
+    background-color: #000000;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    height: fit-content;
+
+}
+
+.ac_tech {
+
+    background-color: #513413;
+
+}
+
+.exp_tech > div {
+
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    margin-top: 3px;
+    border-radius: 5px;
+
+}
+
+.exp_tech > div > i:not(:last-child) {
+
+    margin-bottom: 5px;
+
+}
+
+.exp_tech > i, .exp_tech > div > i {
+
+    display: flex;
+
+}
+
+.exp_tech > i > p, .exp_tech > div > i > p {
+
+    font-size: 10px;
+    font-style: normal;
+    margin-left: 5px;
+    white-space: nowrap;
+
+}
