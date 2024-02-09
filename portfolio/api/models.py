@@ -2,6 +2,7 @@ from django.db import models
 
 class Projects(models.Model):
 
+    priority = models.IntegerField()
     name = models.CharField(max_length = 50)
     image = models.ImageField(upload_to = '')
     diagram = models.ImageField(upload_to = '')

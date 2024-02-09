@@ -189,9 +189,11 @@ async function sendRequest() {
 
     } else if (input == 'http://127.0.0.1:8000/api/projects/' || input == 'http://127.0.0.1:8000/api/projects') {
 
+        let order = getOrder(response)
+
         for (let i = 0; i < response.length; i++) {
 
-            html = createProject(response[i])
+            html = createProject(response[order[i]])
 
             display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
 
@@ -374,7 +376,26 @@ function createTechHTML(json, createFor) {
 
     for (let i = 0; i < jsonKeys.length; i++) {
 
-        if (jsonKeys[i].split('-')[0] == 'simple') {
+        if (typeof json[jsonKeys[i]] == "object") {
+
+            sameIconTech = json[jsonKeys[i]]
+
+            for (let j = 0; j < sameIconTech.length; j++) {
+
+                if (jsonKeys[i].split('-')[0] == 'simple') {
+
+                    html += `<i><iconify-icon icon="${jsonKeys[i]}"></iconify-icon><p>${sameIconTech[j]}</p></i>`
+        
+                } else {
+        
+                    html += `<i class="${jsonKeys[i]}"><p>${sameIconTech[j]}</p></i>`
+        
+                }
+
+
+            }
+
+        } else if (jsonKeys[i].split('-')[0] == 'simple') {
 
             html += `<i><iconify-icon icon="${jsonKeys[i]}"></iconify-icon><p>${json[jsonKeys[i]]}</p></i>`
 
@@ -447,8 +468,6 @@ function createTechHTML(json, createFor) {
                 </div>
                 </div>
     `
-    console.log(classJSON[createFor]['class'])
-    console.log(html)
 
     return html
 
@@ -466,8 +485,6 @@ function createProject(response) {
     let db = response.database
     let tools = response.tools
     let host = response.host
-
-    console.log(response)
 
     let csTechHTML = createTechHTML(clientside, 'clientside')
 
