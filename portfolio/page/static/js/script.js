@@ -285,27 +285,35 @@ function createAM(response) {
     }
 
     let html =  `<div class="div_am_container">
-                <div class="am_header">
-                    <h1><i class="bi bi-person-square"></i>About Me</h1>
-                </div>
-                <div class="am_body">
-                    <p>${response.description}</p>
-                </div>
-                <div class="am_tech_and_links">
-                    <div class="am_tech">
-                        <i class="bi bi-stack tech_header"><p>My Tech Stack</p></i>
-                        <div class="am_stack">
-                            ${techStackHTML}
+                    <div class="am_header">
+                        <h1><i class="bi bi-person-square"></i>About Me</h1>
+                    </div>
+                    <div class="am_img_and_body">
+                        <div class="am_img">
+                            <img src="static/media/profile_picture.png" alt="">
+                        </div>
+                        <div class="am_body">
+                            <p>${response.description}</p>
                         </div>
                     </div>
-                    <div class="am_links">
-                        <h1><i class="bi bi-share"></i>My Socials</h1>
-                        <div class="links">
-                            ${linksHTML}
+                    <div class="am_tech_and_links">
+                        <div class="am_tech">
+                            <i class="bi bi-stack tech_header"><p>My Tech Stack</p></i>
+                            <div class="am_stack">${techStackHTML}</div>
+                        </div>
+                        <div class="am_links">
+                            <h1><i class="bi bi-share"></i>Connect</h1>
+                            <div class="links">
+                                ${linksHTML}
+                                <a href="#" target="" onclick="afContact()">
+                                    <i class="bi bi-envelope-paper-fill">
+                                        <p>Contact Me</p>
+                                    </i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>`
+                </div>`
 
     return html
 

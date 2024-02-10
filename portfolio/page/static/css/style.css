@@ -438,7 +438,7 @@ body {
     font-size: 18px;
     font-weight: lighter;
     color: rgba(255, 255, 255, 0.5);
-    margin: 20px;
+    margin: 20px 0px 10px 20px ;
 
 }
 
@@ -483,11 +483,42 @@ body {
 
 /**/
 
+.am_img_and_body {
+
+    display: flex;
+    margin-inline: 20px;
+    gap: 15px;
+
+
+}
+
+.am_tech_and_links {
+
+    display: flex;
+    margin-inline: 20px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    gap: 15px;
+
+}
+
+.am_img {
+
+    display: flex;
+
+}
+
+.am_img > img {
+
+    height: 200px;
+    border-radius: 5px;
+
+}
+
 .am_body {
 
-    margin-inline: 20px;
     padding: 10px 14px;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.075);
     color: rgba(255, 255, 255, 0.5);
     font-size: 12px;
@@ -503,12 +534,6 @@ body {
 
 }
 
-.am_tech_and_links {
-
-    display: flex;
-
-}
-
 .am_tech {
 
     background-color: rgba(255, 255, 255, 0.075);
@@ -519,7 +544,6 @@ body {
     height: fit-content;
     width: fit-content;
     padding: 5px;
-    margin: 20px;
     white-space: nowrap;
 
 }
@@ -557,11 +581,8 @@ body {
 
     background-color: rgba(255, 255, 255, 0.075);
     color: rgba(255, 255, 255, 0.5);
-    margin-top: 20px;
-    margin-bottom: 70px;
-    margin-right: 20px;
     padding: 14px;
-    border-radius: 10px;
+    border-radius: 5px;
     font-weight: lighter;
     text-align: center;
     width: 100%;
@@ -648,15 +669,16 @@ body {
     display: flex;
     justify-content: left;
     align-items: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
 
 }
 
 .card_header > h1 {
 
-    font-size: 18px;
+    font-size: 16px;
     font-weight: lighter;
     color: rgba(255, 255, 255, 0.5);
-    padding-block: 20px;
     margin-right: 0;
 
 }
@@ -713,9 +735,9 @@ body {
 
 .card_body {
 
-    margin: 5px 20px;
+    margin-inline: 20px;
     padding: 10px 14px;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.075);
     color: rgba(255, 255, 255, 0.5);
     font-size: 12px;
@@ -730,7 +752,7 @@ body {
     display: flex;
     justify-content: space-around;
     margin-inline: 20px;
-    margin-top: 16px;
+    margin-top: 10px;
     margin-bottom: 20px;
 
 }
@@ -903,10 +925,10 @@ body {
 
 .contact_header > h1 {
 
-    font-size: 18px;
+    font-size: 16px;
     font-weight: lighter;
     color: rgba(255, 255, 255, 0.5);
-    margin: 20px;
+    margin: 20px 0px 10px 20px;
 
 }
 
@@ -926,7 +948,7 @@ body {
     margin-inline: 20px;
     margin-bottom: 20px;
     padding: 14px;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.075);
 
 }
@@ -1008,7 +1030,7 @@ body {
     font-size: 14px;
     padding-block: 10px;
     color: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
+    border-radius: 5px;
     margin-top: 14px;
     transition: all 250ms ease-in-out;
     cursor: pointer;
