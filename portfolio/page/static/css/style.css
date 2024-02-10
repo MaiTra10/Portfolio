@@ -90,7 +90,8 @@ body {
 
 .div_title > h1 {
 
-    letter-spacing: 2px;
+    letter-spacing: 5px;
+    margin-bottom: 4px;
 
 }
 
@@ -100,6 +101,23 @@ body {
     font-weight: lighter;
 
 }
+
+.div_title > h5 > i {
+    font-size: 9px;
+    color: red;
+    animation: breathe 0.75s infinite alternate; /* adjust timing as needed */
+  }
+  
+  @keyframes breathe {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0.25;
+    }
+  }
 
 .svg_wave {
 
