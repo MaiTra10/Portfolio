@@ -49,7 +49,7 @@
 
 }
 /*removes default decoration on a tags*/
-a{
+a {
 
     text-decoration: none;
 
@@ -76,7 +76,7 @@ body {
 
 .div_title {
 
-    padding: 10px;
+    padding: min(0.9vw, 10px);
     width: fit-content;
     height: fit-content;
     border: min(0.12vw, 2px) solid var(--light);
@@ -90,8 +90,9 @@ body {
 
 .div_title > h1 {
 
-    letter-spacing: 5px;
+    letter-spacing: 2px;
     margin-bottom: 4px;
+    padding-inline: 9px;
 
 }
 
@@ -102,8 +103,14 @@ body {
 
 }
 
+.div_title > h5 {
+
+    font-size: min(1vw, 11px);
+
+}
+
 .div_title > h5 > i {
-    font-size: 9px;
+    font-size: min(0.8vw, 8px);
     color: red;
     animation: breathe 0.75s infinite alternate; /* adjust timing as needed */
   }
