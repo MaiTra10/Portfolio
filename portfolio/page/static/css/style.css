@@ -630,10 +630,11 @@ body {
 
 .links {
 
+    padding-top: 20px;
     height: calc(100% - 24px);
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 
 }
 

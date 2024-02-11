@@ -534,9 +534,9 @@ function createResume(response) {
                     <h1><i class="bi bi-file-earmark-person-fill"></i>Resume</h1>
                 </div>
                 <div class="resume_buttons">
+                    <a href="static/media${response.pdf}" target="_blank">View on Page <i class="bi bi-box-arrow-up-right"></i></a>
                     <a href="static/media${response.pdf}" download="static/media${response.pdf}">Download as PDF <i class="bi bi-filetype-pdf"></i></a>
                     <a href="static/media${response.image}" download="static/media${response.image}">Download as PNG <i class="bi bi-file-earmark-image"></i></a>
-                    <a href="static/media${response.pdf}" target="_blank">View on Page <i class="bi bi-box-arrow-up-right"></i></a>
                 </div>
             </div>
     `
