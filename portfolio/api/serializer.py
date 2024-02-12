@@ -35,3 +35,10 @@ class ContactSerializer(serializers.ModelSerializer):
 
         model = models.Contact
         fields = '__all__'
+        
+class MsgSerializer(serializers.Serializer):
+    
+    first_name = serializers.CharField(max_length=100)
+    last_name = serializers.CharField(max_length=100)
+    email = serializers.EmailField()
+    message = serializers.CharField()

@@ -636,3 +636,9 @@ function displaySuccessMsg(msg) {
     }, 4000);
 
 }
+
+function sendContact() {
+
+    
+
+}

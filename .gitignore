@@ -6,3 +6,4 @@ portfolio/*/*.pot
 portfolio/*/*.pyc
 portfolio/*/*/*/*.pyc
 .vscode/settings.json
+portfolio/api/credentials.ini
