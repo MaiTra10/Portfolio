@@ -555,23 +555,74 @@ function createCM(response) {
 
 let valid = false;
 
-function checkValid(input) {
+let fname_valid = false;
+let lname_valid = false;
+let email_valid = false;
+let textarea_valid = false;
+
+function checkValid(input, regex, ctx) {
 
     let text = input.value;
-    const emailRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
 
-    if(!emailRegex.test(text)) {
+    if (regex == 'textarea') {
+
+        regex = /^[\w\s!@#$%^&*()_+\-=\[\]{}|;':"\\,.<>\/?`~]+$/
+
+    }
+
+    if(!regex.test(text)) {
 
         input.classList.add("input-border-red");
         input.classList.remove("input-border-green");
-        valid = false
 
+        if (ctx == 'url') {
+
+            valid = false
+
+        } else if (ctx == 'fname') {
+
+            fname_valid = false
+
+        } else if (ctx == 'lname') {
+
+            lname_valid = false
+
+        } else if (ctx == 'email') {
+
+            email_valid = false
+
+        } else if (ctx == 'textarea') {
+
+            textarea_valid = false
+
+        }
 
     } else {
 
         input.classList.add("input-border-green");
         input.classList.remove("input-border-red");
-        valid = true
+
+        if (ctx == 'url') {
+
+            valid = true
+
+        } else if (ctx == 'fname') {
+
+            fname_valid = true
+
+        } else if (ctx == 'lname') {
+
+            lname_valid = true
+
+        } else if (ctx == 'email') {
+
+            email_valid = true
+
+        } else if (ctx == 'textarea') {
+
+            textarea_valid = true
+
+        }
 
     }
 
@@ -633,12 +684,96 @@ function displaySuccessMsg(msg) {
 
         closeSuccessMsg();
 
-    }, 4000);
+    }, 5000);
 
 }
 
-function sendContact() {
+function getCookie(name) {
 
-    
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+
+    if (parts.length === 2) return parts.pop().split(';').shift();
+
+}
+
+function sendMsg() {
+
+    let form = document.getElementsByClassName("content_form")[0]
+
+    if (!fname_valid || !lname_valid || !email_valid || !textarea_valid) {
+
+        console.log('Please Ensure all the fields are filled out and valid!');
+        displayFailMsg('Please ensure all the input fields are filled out and valid!')
+        return
+
+    }
+
+    fname = form.elements['fname'].value
+    lname = form.elements['lname'].value
+    email = form.elements['email'].value
+    msg = form.elements['message'].value
+
+    const formData = {
+
+        first_name: fname,
+        last_name: lname,
+        email: email,
+        message: msg
+
+    }
+
+    fetch('http://127.0.0.1:8000/api/sendMessage/', {
+
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            "X-CSRFToken": getCookie("csrftoken")
+        },
+        body: JSON.stringify(formData),
+    })
+    .then(response => {
+
+        if (!response.ok) {
+
+            console.error('Error:', error);
+            console.log('An Unexpected error occured and the message was not sent! Please try again.');
+            displayFailMsg('An Unexpected error occured and the message was not sent! Please try again.')
+            return
+
+        }
+
+        return response.json();
+    })
+
+    .then(data => {
+
+        console.log('Success:', data);
+        console.log('Your message has been successfully sent to me! I will reach out to you as soon as possible! Thanks.');
+        
+        form.remove()
+        let contactHeader = document.getElementsByClassName('contact_header')[0]
+        contactHeader.remove()
+
+        let divContact = document.getElementsByClassName('div_contact')[0]
+
+        let successContactDiv = document.createElement('div');
+        successContactDiv.classList.add('contact_success');
+
+        successContactDiv.innerHTML = `<h1><i class="bi bi-check2-square"></i> Success!</h1><p>Your message has been sent and I will take a look as soon as I can. Thanks for taking the time!</p>`
+
+        divContact.appendChild(successContactDiv)
+        
+        return
+
+    })
+    .catch(error => {
+
+        console.error('Error:', error);
+        console.log('An Unexpected error occured and the message was not sent! Please try again.');
+        displayFailMsg('An Unexpected error occured and the message was not sent! Please try again.')
+        return
+
+    });
 
 }

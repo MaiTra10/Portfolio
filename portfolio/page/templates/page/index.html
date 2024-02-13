@@ -48,6 +48,7 @@
         <div class="div_container">
             <div class="div_container_bar">
                 <form action="." class="form_container">
+                    {% csrf_token %}
                     <select name="methods" id="methods">
                         <option value="get">GET</option>
                         <option value="post">POST</option>
@@ -55,7 +56,7 @@
                         <option value="delete">DELETE</option>
                         <option value="options">OPTIONS</option>
                     </select>
-                    <input type="url" id="urlInput" class="input" name="urlInput" placeholder="Enter an endpoint here..." autocomplete="off" oninput="checkValid(this)" onfocusout="revertBorder(this)">
+                    <input type="url" id="urlInput" class="input" name="urlInput" placeholder="Enter an endpoint here..." autocomplete="off" oninput="checkValid(this, /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i, 'url')" onfocusout="revertBorder(this)">
                     <button id="sendButton" type="button" onclick="sendRequest()">Send</button>
                 </form>
                 <div class="display_buttons">
@@ -69,7 +70,6 @@
             <div class="div_container_display">
                 <div class="display">
                     <div class="top_blur"></div>
-                </div>
                 <div class="bottom_blur"></div>
             </div>
         </div>

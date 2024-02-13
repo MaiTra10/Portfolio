@@ -1,10 +1,12 @@
 import configparser
 import smtplib
 import ssl
+from django.conf import settings
 from email.message import EmailMessage
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.views.decorators.csrf import csrf_exempt
 from .serializer import ProjectsSerializer, AboutMeSerializer, ExperienceSerializer, ResumeSerializer, ContactSerializer, MsgSerializer
 from . import models
 
@@ -47,7 +49,7 @@ class ContactView(APIView):
         serializer = ContactSerializer(models.Contact.objects.all(), many = True)
 
         return Response(serializer.data)
-    
+
 class SendMsg(APIView):
     
     def post(self, request):
@@ -66,10 +68,10 @@ class SendMsg(APIView):
         cfg = configparser.ConfigParser()
         cfg.read('credentials.ini')
         
-        sender_email = cfg['credentials']['email']
-        sender_password = cfg['credentials']['password']
+        sender_email = settings.EMAIL_HOST_USER
+        sender_password = settings.EMAIL_HOST_PASSWORD
         
-        recipients = [cfg['recipients']['first'], cfg['recipients']['second']]
+        recipients = [settings.RECIPIENT_EMAIL1, settings.RECIPIENT_EMAIL2]
         
         subject = "Portfolio | Message"
         body = """

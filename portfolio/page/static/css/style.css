@@ -949,12 +949,48 @@ body {
 
 }
 
+.contact_success {
+
+    margin: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.5);
+
+}
+
+.contact_success > h1 {
+
+    font-size: 16px;
+    font-weight: lighter;
+    margin-top: -3px;
+
+}
+
+.contact_success > h1 > i {
+
+    font-size: 18px;
+
+}
+
+.contact_success > p {
+
+    background-color:#346B4E;
+    padding: 10px 14px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: lighter;
+    line-height: 18px;
+    margin-top: 10px;
+    color: var(--light);
+
+}
+
 .contact_header > h1 {
 
     font-size: 16px;
     font-weight: lighter;
     color: rgba(255, 255, 255, 0.5);
-    margin: 20px 0px 10px 20px;
+    margin: 20px 0px 20px 20px;
 
 }
 
@@ -973,6 +1009,7 @@ body {
     flex-direction: column;
     margin-inline: 20px;
     margin-bottom: 20px;
+    margin-top: -10px;
     padding: 14px;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.075);
@@ -1014,6 +1051,49 @@ body {
     margin-top: 8px;
     margin-bottom: 14px;
     color: rgba(255, 255, 255, 0.5);
+    transition: all 250ms ease-in-out;
+
+}
+
+.form_name_container > div > input {
+
+    border: 2px solid rgba(255, 255, 255, 0);
+
+}
+
+.form_name_container > div > .input-border-red {
+
+    border: 2px solid rgb(184, 78, 78);
+
+}
+
+.form_name_container > div > .input-border-green {
+
+    border: 2px solid var(--acc_1);
+
+}
+
+.content_form > input {
+
+    border: 2px solid rgba(255, 255, 255, 0);
+
+}
+
+.content_form > textarea {
+
+    border: 2px solid rgba(255, 255, 255, 0);
+
+}
+
+.content_form > .input-border-red {
+
+    border: 2px solid rgb(184, 78, 78);
+
+}
+
+.content_form > .input-border-green {
+
+    border: 2px solid var(--acc_1);
 
 }
 
