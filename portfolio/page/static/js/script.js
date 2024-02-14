@@ -16,7 +16,7 @@ function goToAPI() {
 
 function change_input(text) {
 
-    document.getElementById('urlInput').value = 'http://127.0.0.1:8000' + text + '/'
+    document.getElementById('urlInput').value = 'http://www.maitra-patel.com' + text + '/'
     document.getElementById('methods').value = 'get'
     valid = true
     
@@ -181,13 +181,13 @@ async function sendRequest() {
 
     display = document.getElementsByClassName('display')[0]
 
-    if (input == 'http://127.0.0.1:8000/api/about/' || input == 'http://127.0.0.1:8000/api/about') {
+    if (input == 'http://www.maitra-patel.com/api/about/' || input == 'http://www.maitra-patel.com/api/about') {
 
         html = createAM(response[0])
 
         display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
 
-    } else if (input == 'http://127.0.0.1:8000/api/projects/' || input == 'http://127.0.0.1:8000/api/projects') {
+    } else if (input == 'http://www.maitra-patel.com/api/projects/' || input == 'http://www.maitra-patel.com/api/projects') {
 
         let order = getOrder(response)
 
@@ -199,19 +199,19 @@ async function sendRequest() {
 
         }
 
-    } else if (input == 'http://127.0.0.1:8000/api/resume/' || input == 'http://127.0.0.1:8000/api/resume') {
+    } else if (input == 'http://www.maitra-patel.com/api/resume/' || input == 'http://www.maitra-patel.com/api/resume') {
 
         html = createResume(response[0])
 
         display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
 
-    } else if (input == 'http://127.0.0.1:8000/api/contact/' || input == 'http://127.0.0.1:8000/api/contact') {
+    } else if (input == 'http://www.maitra-patel.com/api/contact/' || input == 'http://www.maitra-patel.com/api/contact') {
 
         html = createCM(response[0])
 
         display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
 
-    } else if (input == 'http://127.0.0.1:8000/api/experience/' || input == 'http://127.0.0.1:8000/api/experience') {
+    } else if (input == 'http://www.maitra-patel.com/api/experience/' || input == 'http://www.maitra-patel.com/api/experience') {
 
         let order = getOrder(response)
 
@@ -723,7 +723,7 @@ function sendMsg() {
 
     }
 
-    fetch('http://127.0.0.1:8000/api/sendMessage/', {
+    fetch('http://www.maitra-patel.com/api/sendMessage/', {
 
         method: 'POST',
         headers: {
