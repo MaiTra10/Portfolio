@@ -6,13 +6,13 @@ class Projects(models.Model):
     name = models.CharField(max_length = 50)
     image = models.TextField()
     diagram = models.TextField()
-    links = models.JSONField()
+    links = models.TextField()
     description = models.TextField()
-    frontend = models.JSONField()
-    backend = models.JSONField()
-    database = models.JSONField()
-    tools = models.JSONField()
-    host = models.JSONField()
+    frontend = models.TextField()
+    backend = models.TextField()
+    database = models.TextField()
+    tools = models.TextField()
+    host = models.TextField()
 
     class Meta:
 
@@ -25,8 +25,8 @@ class Projects(models.Model):
 class AboutMe(models.Model):
 
     description = models.TextField()
-    tech_stack = models.JSONField()
-    socials = models.JSONField()
+    tech_stack = models.TextField()
+    socials = models.TextField()
 
     class Meta:
 
@@ -43,7 +43,7 @@ class Experience(models.Model):
     length = models.CharField(max_length = 30)
     image = models.TextField()
     description = models.TextField()
-    tech = models.JSONField()
+    tech = models.TextField()
     
     class Meta:
 

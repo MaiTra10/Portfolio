@@ -254,7 +254,7 @@ async function sendRequest() {
 
 function createAM(response) {
 
-    socials = response.socials
+    socials = JSON.parse(response.socials)
     socialsKeys = Object.keys(socials)
 
     linksHTML = ''
@@ -265,7 +265,7 @@ function createAM(response) {
 
     } 
 
-    techStack = response.tech_stack
+    techStack = JSON.parse(response.tech_stack)
     techStackKeys = Object.keys(techStack)
 
     techStackHTML = ''
@@ -326,7 +326,7 @@ function createEXP(response) {
     let length = response['length']
     let imgURL = response.image
     let description = response.description
-    let tech = response.tech
+    let tech = JSON.parse(response.tech)
 
     let forJSON = JSON.parse(`{
 
@@ -486,13 +486,13 @@ function createProject(response) {
     let namePrjct = response.name
     let imgURL = response.image
     let diagramURL = response.diagram
-    let links = response.links
+    let links = JSON.parse(response.links)
     let description = response.description
-    let clientside = response.frontend
-    let backend = response.backend
-    let db = response.database
-    let tools = response.tools
-    let host = response.host
+    let clientside = JSON.parse(response.frontend)
+    let backend = JSON.parse(response.backend)
+    let db = JSON.parse(response.database)
+    let tools = JSON.parse(response.tools)
+    let host = JSON.parse(response.host)
 
     let csTechHTML = createTechHTML(clientside, 'clientside')
 
@@ -760,7 +760,7 @@ function sendMsg() {
         let successContactDiv = document.createElement('div');
         successContactDiv.classList.add('contact_success');
 
-        successContactDiv.innerHTML = `<h1><i class="bi bi-check2-square"></i> Success!</h1><p>Your message has been sent and I will take a look as soon as I can. Thanks for taking the time!</p>`
+        successContactDiv.innerHTML = `<h1><i class="bi bi-check2-square"></i> Success!</h1><p>Your message has been sent and I will take a look at it as soon as I can. Thanks for taking the time!</p>`
 
         divContact.appendChild(successContactDiv)
         
