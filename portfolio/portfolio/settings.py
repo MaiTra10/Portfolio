@@ -132,7 +132,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ALLOWED_HOSTS = ['*']
 
 # Email Credentials
-EMAIL_HOST_USER = 'prjctnotes@gmail.com'
-EMAIL_HOST_PASSWORD = 'fvhnmwyvzkwyents'
-RECIPIENT_EMAIL1 = '10maitra22@gmail.com'
-RECIPIENT_EMAIL2 = 'maitra.patel@ucalgary.ca'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+RECIPIENT_EMAIL1 = os.environ.get('RECIPIENT_EMAIL1')
+RECIPIENT_EMAIL2 = os.environ.get('RECIPIENT_EMAIL2')
