@@ -137,7 +137,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1', 'localhost']
 
 # Email Credentials
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
