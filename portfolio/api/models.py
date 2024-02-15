@@ -4,8 +4,8 @@ class Projects(models.Model):
 
     priority = models.IntegerField()
     name = models.CharField(max_length = 50)
-    image = models.ImageField(upload_to = '')
-    diagram = models.ImageField(upload_to = '')
+    image = models.TextField()
+    diagram = models.TextField()
     links = models.JSONField()
     description = models.TextField()
     frontend = models.JSONField()
@@ -41,7 +41,7 @@ class Experience(models.Model):
     company = models.CharField(max_length = 75)
     title = models.CharField(max_length = 75)
     length = models.CharField(max_length = 30)
-    image = models.ImageField(upload_to = '')
+    image = models.TextField()
     description = models.TextField()
     tech = models.JSONField()
     
@@ -54,8 +54,8 @@ class Experience(models.Model):
 
 class Resume(models.Model):
 
-    pdf = models.FileField(upload_to = '')
-    image = models.ImageField(upload_to = '')
+    pdf = models.TextField()
+    image = models.TextField()
 
     class Meta:
 

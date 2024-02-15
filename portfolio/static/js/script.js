@@ -181,13 +181,13 @@ async function sendRequest() {
 
     display = document.getElementsByClassName('display')[0]
 
-    if (input == 'https://www.maitra-patel.com/api/about/' || input == 'https://www.maitra-patel.com/api/about') {
+    if (input == 'https://www.maitra-patel.com/api/about/' || input == 'https://www.maitra-patel.com/api/about' || input == 'http://127.0.0.1:8000/api/about') {
 
         html = createAM(response[0])
 
         display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
 
-    } else if (input == 'https://www.maitra-patel.com/api/projects/' || input == 'https://www.maitra-patel.com/api/projects') {
+    } else if (input == 'https://www.maitra-patel.com/api/projects/' || input == 'https://www.maitra-patel.com/api/projects' || input == 'http://127.0.0.1:8000/api/projects') {
 
         let order = getOrder(response)
 
@@ -199,19 +199,19 @@ async function sendRequest() {
 
         }
 
-    } else if (input == 'https://www.maitra-patel.com/api/resume/' || input == 'https://www.maitra-patel.com/api/resume') {
+    } else if (input == 'https://www.maitra-patel.com/api/resume/' || input == 'https://www.maitra-patel.com/api/resume' || input == 'http://127.0.0.1:8000/api/resume') {
 
         html = createResume(response[0])
 
         display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
 
-    } else if (input == 'https://www.maitra-patel.com/api/contact/' || input == 'https://www.maitra-patel.com/api/contact') {
+    } else if (input == 'https://www.maitra-patel.com/api/contact/' || input == 'https://www.maitra-patel.com/api/contact' || input == 'http://127.0.0.1:8000/api/contact') {
 
         html = createCM(response[0])
 
         display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
 
-    } else if (input == 'https://www.maitra-patel.com/api/experience/' || input == 'https://www.maitra-patel.com/api/experience') {
+    } else if (input == 'https://www.maitra-patel.com/api/experience/' || input == 'https://www.maitra-patel.com/api/experience' || input == 'http://127.0.0.1:8000/api/experience') {
 
         let order = getOrder(response)
 
