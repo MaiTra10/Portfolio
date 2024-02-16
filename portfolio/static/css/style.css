@@ -426,11 +426,11 @@ body {
 }
 
 .top_blur {
-    margin-top: 23px;
+    margin-top: 24px;
     margin-right: 0.5vw;
     height: 25px;
     border-radius: 0.75vw 0.75vw 0px 0px;
-    background-image: linear-gradient(to top, rgba(255,255,255,0), #141614 100%);
+    background-image: linear-gradient(to top, rgba(255,255,255,0), #141614 96%);
     position: absolute;
     top: 0;
     left: 0;
@@ -440,11 +440,11 @@ body {
 
 .bottom_blur {
 
-    margin-bottom: 23px;
+    margin-bottom: 24px;
     margin-right: 0.5vw;
     height: 25px;
     border-radius: 0px 0px 0.75vw 0.75vw;
-    background-image: linear-gradient(to bottom, rgba(255,255,255,0), #141614 100%);
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0), #141614 96%);
     position: absolute;
     bottom: 0;
     left: 0;
