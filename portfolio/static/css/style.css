@@ -16,7 +16,7 @@
 /*scrollbar*/
 ::-webkit-scrollbar {
 
-    width: 0.5vw;
+    width: min(0.5vw, 10px);
     z-index: 3;
 
 }
@@ -31,7 +31,7 @@
 
 ::-webkit-scrollbar-thumb {
 
-    background-color: var(--scrollbar_thumb);
+    background-color: var(--scrollbar_thumb_active);
     border-radius: 0.75vw;
     z-index: 3;
 
@@ -39,7 +39,7 @@
 
 ::-webkit-scrollbar-thumb:active {
 
-    background-color: var(--scrollbar_thumb_active);
+    background-color: var(--scrollbar_thumb);
     z-index: 3;
 
 }
@@ -406,7 +406,7 @@ body {
 }
 
 .div_container_display {
-    width: 80%;
+    width: min(80%, 800px);
     height: max(60vh, 320px);
     border-radius: 0.75vw;
     margin-block: calc(2vh);
