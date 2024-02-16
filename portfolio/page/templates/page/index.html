@@ -56,7 +56,7 @@
                         <option value="delete">DELETE</option>
                         <option value="options">OPTIONS</option>
                     </select>
-                    <input type="url" id="urlInput" class="input" name="urlInput" placeholder="Enter an endpoint here..." autocomplete="off" oninput="checkValid(this, /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i, 'url')" onfocusout="revertBorder(this)">
+                    <input type="url" id="urlInput" class="input" name="urlInput" placeholder="Enter an endpoint here..." autocomplete="off" oninput="checkValid(this, /^https:\/\/[^\s/$.?#].[^\s]*$/i, 'url')" onfocusout="revertBorder(this)">
                     <button id="sendButton" type="button" onclick="sendRequest()">Send</button>
                 </form>
                 <div class="display_buttons">
