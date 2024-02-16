@@ -777,3 +777,18 @@ function sendMsg() {
     });
 
 }
+
+function handleEnter(event) {
+
+    if (event.keyCode === 13) {
+
+        event.preventDefault();
+        sendRequest();
+
+        return false;
+
+    }
+
+    return true;
+    
+}
