@@ -426,7 +426,7 @@ body {
 }
 
 .top_blur {
-    margin-top: 25px;
+    margin-top: 23px;
     margin-right: 0.5vw;
     height: 25px;
     border-radius: 0.75vw 0.75vw 0px 0px;
@@ -440,7 +440,7 @@ body {
 
 .bottom_blur {
 
-    margin-bottom: 25px;
+    margin-bottom: 23px;
     margin-right: 0.5vw;
     height: 25px;
     border-radius: 0px 0px 0.75vw 0.75vw;
