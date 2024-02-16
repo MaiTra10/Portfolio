@@ -17,6 +17,7 @@
 ::-webkit-scrollbar {
 
     width: 0.5vw;
+    z-index: 3;
 
 }
 
@@ -24,6 +25,7 @@
 
     background-color: transparent;
     border-radius: 0.75vw;
+    z-index: 3;
 
 }
 
@@ -31,12 +33,14 @@
 
     background-color: var(--scrollbar_thumb);
     border-radius: 0.75vw;
+    z-index: 3;
 
 }
 
 ::-webkit-scrollbar-thumb:active {
 
     background-color: var(--scrollbar_thumb_active);
+    z-index: 3;
 
 }
 /*default styles*/
@@ -402,47 +406,50 @@ body {
 }
 
 .div_container_display {
-
     width: 80%;
     height: max(60vh, 320px);
     border-radius: 0.75vw;
-    margin: 0% 10%;
     margin-block: calc(2vh);
     background-color: #141614;
-    padding: 2vw;
     display: flex;
     flex-direction: column;
-
+    position: relative;
+    padding-block: 25px;
 }
 
 .display {
 
     overflow-y: scroll;
+    position: relative;
+    z-index: 1;
+    
 }
 
 .top_blur {
-
-    content: "";
-    position: absolute;
-    pointer-events: none;
+    margin-top: 25px;
+    margin-right: 0.5vw;
+    height: 25px;
+    border-radius: 0.75vw 0.75vw 0px 0px;
     background-image: linear-gradient(to top, rgba(255,255,255,0), #141614 100%);
-    width: calc(80% - 4.5vw);
-    height: 30px;
-    z-index: 3;
-
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
 }
 
 .bottom_blur {
 
-    content: "";
-    position: absolute;
-    pointer-events: none;
+    margin-bottom: 25px;
+    margin-right: 0.5vw;
+    height: 25px;
+    border-radius: 0px 0px 0.75vw 0.75vw;
     background-image: linear-gradient(to bottom, rgba(255,255,255,0), #141614 100%);
-    width: calc(80% - 4.5vw);
-    margin-top: calc(max(60vh, 320px) - 2vh - 30px - 2vw);
-    height: 30px;
-    z-index: 3;
-    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
 }
 
 /* About Me + Resume Styles */
@@ -865,7 +872,7 @@ body {
     display: flex;
     user-select: none;
     justify-content: space-around;
-    margin-block: 20px;
+    margin-bottom: 20px;
 
 }
 
