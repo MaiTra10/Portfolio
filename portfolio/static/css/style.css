@@ -1490,3 +1490,45 @@ body {
     white-space: nowrap;
 
 }
+
+/* Notification Styles */
+
+.pointer_not_container {
+
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 22px;
+    margin-top: 16px;
+    line-height: 0px;
+    margin-right: 10px;
+
+}
+
+.card {
+
+    color: rgba(157, 157, 157, 0.5);
+    width: 600px;
+    border-radius: 10px;
+
+}
+
+.card_not {
+
+    background-color: rgb(0, 0, 0, 0.2);
+
+}
+
+.div_not_container {
+
+    padding: 20px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.not > p > b {
+
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 11px;
+
+}

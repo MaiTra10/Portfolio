@@ -199,6 +199,26 @@ async function sendRequest() {
 
         }
 
+        htmlNotification = `<div class="div_card_container">
+                                <div class="pointer_not_container">
+                                    <h1><span class="material-symbols-outlined">arrow_right</span></h1>
+                                </div>
+                                <div class="card_not_container">
+                                    <div class="card card_not">
+                                        <div class="div_not_container">
+                                            <div class="not">
+                                                <p>Successfully loaded <b>${response.length}</b> projects. You may need to scroll to view them all.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="options">
+                                        <p onclick="removeCard(this)">Remove</p>
+                                    </div>
+                                </div>
+                            </div>`
+
+        display.insertAdjacentHTML('afterbegin', htmlNotification)
+
     } else if (input == 'https://www.maitra-patel.com/api/resume/' || input == 'https://www.maitra-patel.com/api/resume' || input == 'http://127.0.0.1:8000/api/resume') {
 
         html = createResume(response[0])
@@ -222,6 +242,26 @@ async function sendRequest() {
             display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
 
         }
+
+        htmlNotification = `<div class="div_card_container">
+                                <div class="pointer_not_container">
+                                    <h1><span class="material-symbols-outlined">arrow_right</span></h1>
+                                </div>
+                                <div class="card_not_container">
+                                    <div class="card card_not">
+                                        <div class="div_not_container">
+                                            <div class="not">
+                                                <p>Successfully loaded <b>${response.length}</b> experiences. You may need to scroll to view them all.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="options">
+                                        <p onclick="removeCard(this)">Remove</p>
+                                    </div>
+                                </div>
+                            </div>`
+
+        display.insertAdjacentHTML('afterbegin', htmlNotification)
 
     } else {
 
