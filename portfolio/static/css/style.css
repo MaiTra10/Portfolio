@@ -280,6 +280,7 @@ body {
     background-color: rgba(0, 0, 0, 0.075);
     border-radius: min(2vw, 20px);
     margin-top: 1vh;
+    user-select: none;
 
 }
 
@@ -296,10 +297,12 @@ body {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-color: var(--acc_1);
+    pointer-events: none;
+    cursor: default;
+    background-color: #121412;
     color: var(--light);
-    padding: 10px;
     height: 40px;
+    padding-inline: 25px;
     width: fit-content;
     border-radius: 40px;
     text-align: center;
@@ -360,7 +363,7 @@ body {
 
     background-color: var(--acc_1);
     color: var(--light);
-    padding-inline: 20px;
+    padding-inline: 25px;
     height: 40px;
     width: fit-content;
     border-radius: 4vw;
