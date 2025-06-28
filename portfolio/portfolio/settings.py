@@ -84,11 +84,11 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
+        'NAME': 'postgres',
+        'USER': 'postgres.pqeaeasntihriczecowr',
         'PASSWORD': os.environ.get('PSQLPASS'),
-        'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': '53114'
+        'HOST': 'aws-0-us-west-1.pooler.supabase.com',
+        'PORT': '5332'
     }
 }
 
