@@ -88,7 +88,7 @@ DATABASES = {
         'USER': 'postgres.pqeaeasntihriczecowr',
         'PASSWORD': os.environ.get('PSQLPASS'),
         'HOST': 'aws-0-us-west-1.pooler.supabase.com',
-        'PORT': '5332'
+        'PORT': '5432'
     }
 }
 
