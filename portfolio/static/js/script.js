@@ -181,13 +181,13 @@ async function sendRequest() {
 
     display = document.getElementsByClassName('display')[0]
 
-    if (input == 'https://www.maitra-patel.com/api/about/' || input == 'https://www.maitra-patel.com/api/about' || input == 'http://127.0.0.1:8000/api/about') {
+    if (input == 'https://www.maitra-patel.com/api/about/' || input == 'https://www.maitra-patel.com/api/about') {
 
         html = createAM(response[0])
 
         display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
 
-    } else if (input == 'https://www.maitra-patel.com/api/projects/' || input == 'https://www.maitra-patel.com/api/projects' || input == 'http://127.0.0.1:8000/api/projects') {
+    } else if (input == 'https://www.maitra-patel.com/api/projects/' || input == 'https://www.maitra-patel.com/api/projects') {
 
         let order = getOrder(response)
 
@@ -219,19 +219,19 @@ async function sendRequest() {
 
         display.insertAdjacentHTML('afterbegin', htmlNotification)
 
-    } else if (input == 'https://www.maitra-patel.com/api/resume/' || input == 'https://www.maitra-patel.com/api/resume' || input == 'http://127.0.0.1:8000/api/resume') {
+    } else if (input == 'https://www.maitra-patel.com/api/resume/' || input == 'https://www.maitra-patel.com/api/resume') {
 
         html = createResume(response[0])
 
         display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
 
-    } else if (input == 'https://www.maitra-patel.com/api/contact/' || input == 'https://www.maitra-patel.com/api/contact' || input == 'http://127.0.0.1:8000/api/contact') {
+    } else if (input == 'https://www.maitra-patel.com/api/contact/' || input == 'https://www.maitra-patel.com/api/contact') {
 
         html = createCM(response[0])
 
         display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
 
-    } else if (input == 'https://www.maitra-patel.com/api/experience/' || input == 'https://www.maitra-patel.com/api/experience' || input == 'http://127.0.0.1:8000/api/experience') {
+    } else if (input == 'https://www.maitra-patel.com/api/experience/' || input == 'https://www.maitra-patel.com/api/experience') {
 
         let order = getOrder(response)
 
@@ -239,7 +239,7 @@ async function sendRequest() {
 
             html = createEXP(response[order[i]])
 
-            display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[0], null, 4)))
+            display.insertAdjacentHTML('afterbegin', createHTML(html, JSON.stringify(response[order[i]], null, 4)))
 
         }
 
@@ -369,7 +369,8 @@ function createEXP(response) {
     let forJSON = JSON.parse(`{
 
         "AC Robotics": "experience_ac",
-        "General Dynamics - Mission Systems": "experience_gd"
+        "General Dynamics - Mission Systems": "experience_gd",
+        "Amazon Web Services (AWS)": "experience_aws"
 
     }`)
 
@@ -378,7 +379,8 @@ function createEXP(response) {
     let specialImgBGClassJSON = JSON.parse(`{
 
         "AC Robotics": "ac_img",
-        "General Dynamics - Mission Systems": ""
+        "General Dynamics - Mission Systems": "",
+        "Amazon Web Services (AWS)": "aws_img"
 
     }`)
 
@@ -498,6 +500,13 @@ function createTechHTML(json, createFor) {
 
         },
         "experience_gd": {
+
+            "title": "On The Job Knowledge",
+            "icon": "bi bi-journals",
+            "class": "exp_tech"
+
+        },
+        "experience_aws": {
 
             "title": "On The Job Knowledge",
             "icon": "bi bi-journals",
